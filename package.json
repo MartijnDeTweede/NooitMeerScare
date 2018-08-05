@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-modal": "^3.5.1"
   }
