@@ -1,0 +1,59 @@
+
+[
+  {
+    "id": "catagory",
+    "value": "Catagorie"
+  },
+  {
+    "id": "subcatagory",
+    "value": "Kostenpost"
+  },
+  {
+    "id": "1",
+    "value": "Januari"
+  },
+  {
+    "id": "2",
+    "value": "Februari"
+  },
+  {
+    "id": "3",
+    "value": "Maart"
+  },
+  {
+    "id": "4",
+    "value": "April"
+  },
+  {
+    "id": "5",
+    "value": "Mei"
+  },
+  {
+    "id": "6",
+    "value": "Juni"
+  },
+  {
+    "id": "7",
+    "value": "Juli"
+  },
+  {
+    "id": "8",
+    "value": "Augustus"
+  },
+  {
+    "id": "9",
+    "value": "September"
+  },
+  {
+    "id": "10",
+    "value": "Oktober"
+  },
+  {
+    "id": "11",
+    "value": "November"
+  },
+  {
+    "id": "12",
+    "value": "December"
+  }
+]

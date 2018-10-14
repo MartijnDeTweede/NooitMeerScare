@@ -1,0 +1,79 @@
+[
+  {
+    "catagory": "Wonen",
+    "subcatagory": "Huur",
+    "selected": true,
+    "values": [
+      {"id": 1, "ammount": "0,00"},
+      {"id": 2, "ammount": "0,00"},
+      {"id": 3, "ammount": "0,00"},
+      {"id": 4, "ammount": "0,00"},
+      {"id": 5, "ammount": "0,00"},
+      {"id": 6, "ammount": "0,00"},
+      {"id": 7, "ammount": "0,00"},
+      {"id": 8, "ammount": "0,00"},
+      {"id": 9, "ammount": "0,00"},
+      {"id": 10, "ammount": "0,00"},
+      {"id": 11, "ammount": "0,00"},
+      {"id": 12, "ammount": "0,00"}
+    ]
+  },
+  {
+    "catagory": "Wonen",
+    "subcatagory": "Hypotheek",
+    "selected": true,
+    "values": [
+      {"id": 1, "ammount": "0,00"},
+      {"id": 2, "ammount": "0,00"},
+      {"id": 3, "ammount": "0,00"},
+      {"id": 4, "ammount": "0,00"},
+      {"id": 5, "ammount": "0,00"},
+      {"id": 6, "ammount": "0,00"},
+      {"id": 7, "ammount": "0,00"},
+      {"id": 8, "ammount": "0,00"},
+      {"id": 9, "ammount": "0,00"},
+      {"id": 10, "ammount": "0,00"},
+      {"id": 11, "ammount": "0,00"},
+      {"id": 12, "ammount": "0,00"}
+    ]
+  },
+  {
+    "catagory": "Levensonderhoud",
+    "subcatagory": "Boodschappen",
+    "selected": true,
+    "values": [
+      {"id": 1, "ammount": "0,00"},
+      {"id": 2, "ammount": "0,00"},
+      {"id": 3, "ammount": "0,00"},
+      {"id": 4, "ammount": "0,00"},
+      {"id": 5, "ammount": "0,00"},
+      {"id": 6, "ammount": "0,00"},
+      {"id": 7, "ammount": "0,00"},
+      {"id": 8, "ammount": "0,00"},
+      {"id": 9, "ammount": "0,00"},
+      {"id": 10, "ammount": "0,00"},
+      {"id": 11, "ammount": "0,00"},
+      {"id": 12, "ammount": "0,00"}
+    ]
+  },
+  {
+    "catagory": "Levensonderhoud",
+    "subcatagory": "Persoonlijke verzorging",
+    "selected": true,
+    "values": [
+      {"id": 1, "ammount": "0,00"},
+      {"id": 2, "ammount": "0,00"},
+      {"id": 3, "ammount": "0,00"},
+      {"id": 4, "ammount": "0,00"},
+      {"id": 5, "ammount": "0,00"},
+      {"id": 6, "ammount": "0,00"},
+      {"id": 7, "ammount": "0,00"},
+      {"id": 8, "ammount": "0,00"},
+      {"id": 9, "ammount": "0,00"},
+      {"id": 10, "ammount": "0,00"},
+      {"id": 11, "ammount": "0,00"},
+      {"id": 12, "ammount": "0,00"}
+    ]
+  }
+]
+

@@ -1,0 +1,25 @@
+monthlyBalanceTool__table-header {
+  font-weight: bold;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 3px solid;
+}
+
+tr:first-child {
+  font-weight: bold;
+  text-align: left;
+}
+
+thead th:nth-child(1) {
+  text-align: left;
+  width: 30%;
+}
+
+th, td {
+  text-align: right;
+  padding: 10px;
+  border: 1px solid;
+}
