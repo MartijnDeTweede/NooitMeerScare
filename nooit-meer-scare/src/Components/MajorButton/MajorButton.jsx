@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './MajorButton.css';
 
 class MajorButton extends Component {
   render() {
@@ -10,7 +11,7 @@ class MajorButton extends Component {
 
     return (
       <div>
-        <button onClick={onClick}>{text}</button>
+        <button className="majorButton" onClick={onClick}>{text}</button>
       </div>
     );
   }

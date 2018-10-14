@@ -1,0 +1,17 @@
+.majorButton {
+  border-radius:  10px;
+  padding: 14px 80px;
+  background-color: rgba(145, 189, 145, 0.76);
+  color: whitesmoke;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+}
+
+.majorButton:hover {
+  background-color: darkseagreen;
+  font-size: 29px;
+}

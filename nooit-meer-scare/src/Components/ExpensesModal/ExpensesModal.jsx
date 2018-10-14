@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 import MajorButton from '../MajorButton/MajorButton';
+import './ExpensesModal.css';
 
 class ExpensesModal extends Component {
   render() {
@@ -11,9 +12,14 @@ class ExpensesModal extends Component {
     } = this.props;
 
     return (
-      <ReactModal isOpen={isOpen}>
-        <div>Dit is een modal</div>
-        < MajorButton text="Modal sluiten" onClick={() => {closeModal('ExpensesModalOpen')}} />
+      <ReactModal className="ExpensesModal" isOpen={isOpen}>
+      <div>
+        <div className="ExpensesModal__content">Kies je uitgaven:</div>
+        <div className="ExpensesModal__closeButton">
+          < MajorButton text="Modal sluiten" onClick={() => {closeModal('ExpensesModalOpen')}} />
+        </div>
+      </div>
+
       </ReactModal>
     );
   }
