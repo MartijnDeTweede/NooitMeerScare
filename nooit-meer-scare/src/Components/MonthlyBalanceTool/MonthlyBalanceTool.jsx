@@ -25,9 +25,7 @@ class MonthlyBalanceTool extends Component {
   renderHeaders = () => (
     <tr>
       {HeaderData.map(header => (
-        <td>
-          <span >{header.value}</span>
-        </td>        
+        <th key={header.id}>{header.value}</th>        
       ))}
     </tr>
   )
@@ -36,18 +34,16 @@ class MonthlyBalanceTool extends Component {
     const filtedExpenses = this.state.expenses.filter(expense => expense.selected);
     return (
     <table>
-      {this.renderHeaders()}
-      {filtedExpenses.map(expense => (
-        <tr>
-          <td>
-            <span>{expense.catagory}</span>
-          </td>
-          <td>
-            <span>{expense.subcatagory}</span>
-          </td>
-          {expense.values.map(value => (<td>€ {value.ammount}</td>))}
-        </tr>
-      ))}
+      <tbody>
+        {this.renderHeaders()}
+        {filtedExpenses.map(expense => (
+          <tr key={expense.subcatagory}>
+            <td>{expense.catagory}</td>
+            <td>{expense.subcatagory}</td>
+            {expense.values.map(value => (<td key={value.id}>€ {value.ammount}</td>))}
+          </tr>
+        ))}        
+      </tbody>
     </table>
   )}
 
