@@ -2,25 +2,25 @@
   {
     "catagory": "Wonen",
     "subcatagory": "Huur",
-    "selected": true,
+    "selected": false,
     "value": "0.00"
   },
   {
     "catagory": "Wonen",
     "subcatagory": "Hypotheek",
-    "selected": true,
+    "selected": false,
     "value": "0.00"
   },
   {
     "catagory": "Levensonderhoud",
     "subcatagory": "Boodschappen",
-    "selected": true,
+    "selected": false,
     "value": "0.00"
   },
   {
     "catagory": "Levensonderhoud",
     "subcatagory": "Persoonlijke verzorging",
-    "selected": true,
+    "selected": false,
     "value": "0.00"
   }
 ]

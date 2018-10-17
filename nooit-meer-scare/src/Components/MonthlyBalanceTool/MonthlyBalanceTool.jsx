@@ -42,6 +42,13 @@ class MonthlyBalanceTool extends Component {
     </tr>
   )
 
+  selectExpenses = (subcatagoryName, isChecked) => {
+    const { expenses } = this.state;
+    const inexOfElement = expenses.findIndex(object => object.subcatagory === subcatagoryName);
+    expenses[inexOfElement].selected = isChecked;
+    this.setState({expenses});
+  }
+
   renderTable = (balanceItems) => {
     const selectedItem = balanceItems.filter(item => item.selected);
     return (
@@ -56,13 +63,12 @@ class MonthlyBalanceTool extends Component {
 
   render() {
     const { ExpensesModalOpen } = this.state;
-
     return (
       <div>
         Dit is de monthlyBalancetool
         {this.renderTable(this.state.expenses)}
         <MajorButton text="Kies uitgaven" onClick={() => {this.openModal('ExpensesModalOpen')}} />
-        <ExpensesModal expenses={this.state.expenses} isOpen={ExpensesModalOpen} closeModal={() => {this.closeModal('ExpensesModalOpen')}}/>
+        <ExpensesModal selectExpenses={this.selectExpenses} expenses={this.state.expenses} isOpen={ExpensesModalOpen} closeModal={() => {this.closeModal('ExpensesModalOpen')}}/>
       </div>
     );
   }
