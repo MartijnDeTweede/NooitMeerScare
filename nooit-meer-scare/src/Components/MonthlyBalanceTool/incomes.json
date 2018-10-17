@@ -1,0 +1,27 @@
+[
+  {
+    "catagory": "Arbeid",
+    "subcatagory": "Loon",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "catagory": "Arbeid",
+    "subcatagory": "Bonus",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "catagory": "Overheid",
+    "subcatagory": "Ziektekostenverzekering",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "catagory": "Overheid",
+    "subcatagory": "Huursubsidie",
+    "selected": false,
+    "value": "0.00"
+  }
+]
+

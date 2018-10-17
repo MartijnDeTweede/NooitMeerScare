@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ExpensesModal from '../ExpensesModal/ExpensesModal';
+import IncomesModal from '../IncomesModal/IncomesModal';
 import MajorButton from '../MajorButton/MajorButton';
 import Expenses from './expenses.json';
+import Incomes from './incomes.json';
 import './monthlyBalanceTool.css';
 import HeaderData from './headers.json';
 import { renderTotalAmountRow, renderHeaders } from '../Helpers/TableHelpers';
@@ -13,7 +15,9 @@ class MonthlyBalanceTool extends Component {
 
     this.state = {
       ExpensesModalOpen: false,
+      IncomesModalOpen: false,
       expenses: Expenses,
+      incomes: Incomes,
     }
   }
 
@@ -42,11 +46,10 @@ class MonthlyBalanceTool extends Component {
     </tr>
   )
 
-  selectExpenses = (subcatagoryName, isChecked) => {
-    const { expenses } = this.state;
-    const inexOfElement = expenses.findIndex(object => object.subcatagory === subcatagoryName);
-    expenses[inexOfElement].selected = isChecked;
-    this.setState({expenses});
+  selectBalanceItem = (subcatagoryName, isChecked, set) => {
+    const inexOfElement = set.findIndex(object => object.subcatagory === subcatagoryName);
+    set[inexOfElement].selected = isChecked;
+    this.setState( {...this.state, set});
   }
 
   renderTable = (balanceItems) => {
@@ -62,13 +65,15 @@ class MonthlyBalanceTool extends Component {
   )}
 
   render() {
-    const { ExpensesModalOpen } = this.state;
+    const { ExpensesModalOpen, IncomesModalOpen } = this.state;
     return (
       <div>
         Dit is de monthlyBalancetool
         {this.renderTable(this.state.expenses)}
         <MajorButton text="Kies uitgaven" onClick={() => {this.openModal('ExpensesModalOpen')}} />
-        <ExpensesModal selectExpenses={this.selectExpenses} expenses={this.state.expenses} isOpen={ExpensesModalOpen} closeModal={() => {this.closeModal('ExpensesModalOpen')}}/>
+        <MajorButton text="Kies inkomsten" onClick={() => {this.openModal('IncomesModalOpen')}} />
+        <IncomesModal selectBalanceItem={this.selectBalanceItem} incomes={this.state.incomes} isOpen={IncomesModalOpen} closeModal={() => {this.closeModal('IncomesModalOpen')}}/>
+        <ExpensesModal selectBalanceItem={this.selectBalanceItem} expenses={this.state.expenses} isOpen={ExpensesModalOpen} closeModal={() => {this.closeModal('ExpensesModalOpen')}}/>
       </div>
     );
   }

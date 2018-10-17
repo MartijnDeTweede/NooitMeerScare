@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 import MajorButton from '../MajorButton/MajorButton';
-import './ExpensesModal.css';
+import './IncomesModal.css';
 import {getCatagoriesWithSubCatagories} from '../Helpers/DataTransformations';
 import { Accordion, AccordionItem } from 'react-light-accordion';
 import 'react-light-accordion/demo/css/index.css';
 
-class ExpensesModal extends Component {
+class IncomesModal extends Component {
 
   renderCatagories = (catagories) => (
       Object.keys(catagories).map(catagory => (
       <AccordionItem title={catagory}>
       {catagories[catagory].map(subcatagory => (
         <div>
-          <input type="checkbox" checked={subcatagory.selected} onChange={(e) => this.props.selectBalanceItem(subcatagory.subcatagory, e.target.checked, this.props.expenses )} name={subcatagory.subcatagory} /> {subcatagory.subcatagory} 
+          <input type="checkbox" checked={subcatagory.selected} onChange={(e) => this.props.selectBalanceItem(subcatagory.subcatagory, e.target.checked, this.props.incomes)} name={subcatagory.subcatagory} /> {subcatagory.subcatagory} 
         </div>
       ))}
     </AccordionItem>
@@ -25,20 +25,20 @@ class ExpensesModal extends Component {
     const {
       isOpen,
       closeModal,
-      expenses,
+      incomes,
     } = this.props;
 
-    const catagories = getCatagoriesWithSubCatagories(expenses)
-    
+    const catagories = getCatagoriesWithSubCatagories(incomes)
+
     return (
-      <ReactModal className="ExpensesModal" isOpen={isOpen}>
+      <ReactModal className="IncomesModal" isOpen={isOpen}>
       <div>
-        <div className="ExpensesModal__content">Kies je uitgaven:</div>
+        <div className="IncomesModal__content">Kies je inkomsten:</div>
         <Accordion atomic={true}>
           {this.renderCatagories(catagories)}
          </Accordion>
-        <div className="ExpensesModal__closeButton">
-          < MajorButton text="Modal sluiten" onClick={() => {closeModal('ExpensesModalOpen')}} />
+        <div className="IncomesModal__closeButton">
+          < MajorButton text="Modal sluiten" onClick={() => {closeModal('IncomesModalOpen')}} />
         </div>
       </div>
 
@@ -47,12 +47,12 @@ class ExpensesModal extends Component {
   }
 }
 
-export default ExpensesModal;
+export default IncomesModal;
 
-ExpensesModal.PropTypes = {
+IncomesModal.PropTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
-  expenses: PropTypes.arrayOf(PropTypes.shape({
+  incomes: PropTypes.arrayOf(PropTypes.shape({
     catagory: PropTypes.string.isRequired,
     subcatagory: PropTypes.number.isRequired,
     selected: PropTypes.bool.isRequired,
