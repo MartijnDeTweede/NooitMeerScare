@@ -37,8 +37,8 @@ class MonthlyBalanceTool extends Component {
       <td>{expense.catagory}</td>
       <td>{expense.subcatagory}</td>
       <td>
-        <input type="number" name={expense.subcatagory} defaultValue={expense.value} onBlur={(e) => this.updateExpenseForSubCatagory(expense.subcatagory, e.target.value)}/
-      ></td>
+        <input type="number" name={expense.subcatagory} defaultValue={expense.value} onBlur={(e) => this.updateExpenseForSubCatagory(expense.subcatagory, e.target.value)}/>
+      </td>
     </tr>
   )
 
