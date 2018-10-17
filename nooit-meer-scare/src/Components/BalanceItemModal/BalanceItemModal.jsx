@@ -36,9 +36,12 @@ class BalanceItemModal extends Component {
       <ReactModal className="BalanceItemModal" isOpen={isOpen}>
       <div>
         <div className="BalanceItemModal__content">{text}</div>
-        <Accordion atomic={true}>
-          {this.renderCatagories(catagories)}
-         </Accordion>
+          <div className="BalanceItemModal__Categorybox">
+            <Accordion atomic={true}>
+              {this.renderCatagories(catagories)}
+            </Accordion>            
+          </div>
+
         <div className="BalanceItemModal__closeButton">
           < MajorButton text="Modal sluiten" onClick={() => {closeModal(modalKey)}} />
         </div>
