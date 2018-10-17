@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import ExpensesModal from '../ExpensesModal/ExpensesModal';
-import IncomesModal from '../IncomesModal/IncomesModal';
+import BalanceItemModal from '../BalanceItemModal/BalanceItemModal';
 import MajorButton from '../MajorButton/MajorButton';
 import Expenses from './expenses.json';
 import Incomes from './incomes.json';
@@ -29,19 +28,18 @@ class MonthlyBalanceTool extends Component {
     this.setState({ [modalname]: false });
   }
 
-  updateExpenseForSubCatagory = (subcatagory, value) => {
-    const { expenses } = this.state;
-    const inexOfElement = expenses.findIndex(object => object.subcatagory === subcatagory);
-    expenses[inexOfElement].value = stringToFloat(value).toFixed(2);
-    this.setState({expenses});
+  updateBalanceItemForSubCatagory = (subcatagory, value, set) => {
+    const inexOfElement = set.findIndex(object => object.subcatagory === subcatagory);
+    set[inexOfElement].value = stringToFloat(value).toFixed(2);
+    this.setState({...this.state, set});
   }
 
-  renderTableRow = (expense) => (
-    <tr key={expense.subcatagory}>
-      <td>{expense.catagory}</td>
-      <td>{expense.subcatagory}</td>
+  renderTableRow = (balanceItem, balanceItems) => (
+    <tr key={balanceItem.subcatagory}>
+      <td>{balanceItem.catagory}</td>
+      <td>{balanceItem.subcatagory}</td>
       <td>
-        <input type="number" name={expense.subcatagory} defaultValue={expense.value} onBlur={(e) => this.updateExpenseForSubCatagory(expense.subcatagory, e.target.value)}/>
+        <input type="number" name={balanceItem.subcatagory} defaultValue={balanceItem.value} onBlur={(e) => this.updateBalanceItemForSubCatagory(balanceItem.subcatagory, e.target.value, balanceItems)}/>
       </td>
     </tr>
   )
@@ -58,7 +56,7 @@ class MonthlyBalanceTool extends Component {
     <table>
       <tbody>
         {renderHeaders(HeaderData)}
-        {selectedItem.map(item => this.renderTableRow(item))}
+        {selectedItem.map(item => this.renderTableRow(item, balanceItems))}
         {renderTotalAmountRow(selectedItem)}    
       </tbody>
     </table>
@@ -70,10 +68,25 @@ class MonthlyBalanceTool extends Component {
       <div>
         Dit is de monthlyBalancetool
         {this.renderTable(this.state.expenses)}
+        {this.renderTable(this.state.incomes)}
         <MajorButton text="Kies uitgaven" onClick={() => {this.openModal('ExpensesModalOpen')}} />
         <MajorButton text="Kies inkomsten" onClick={() => {this.openModal('IncomesModalOpen')}} />
-        <IncomesModal selectBalanceItem={this.selectBalanceItem} incomes={this.state.incomes} isOpen={IncomesModalOpen} closeModal={() => {this.closeModal('IncomesModalOpen')}}/>
-        <ExpensesModal selectBalanceItem={this.selectBalanceItem} expenses={this.state.expenses} isOpen={ExpensesModalOpen} closeModal={() => {this.closeModal('ExpensesModalOpen')}}/>
+        <BalanceItemModal 
+          modalKey="IncomesModalOpen"
+          text="Kies je inkomsten"
+          selectBalanceItem={this.selectBalanceItem}
+          balanceItems={this.state.incomes}
+          isOpen={IncomesModalOpen}
+          closeModal={() => {this.closeModal('IncomesModalOpen')}}
+        />
+        <BalanceItemModal 
+          modalKey="ExpensesModalOpen"
+          text="Kies je uitgaven"
+          selectBalanceItem={this.selectBalanceItem}
+          balanceItems={this.state.expenses}
+          isOpen={ExpensesModalOpen}
+          closeModal={() => {this.closeModal('ExpensesModalOpen')}}
+        />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 
-.ExpensesModal {
+.BalanceItemModal {
   position: absolute;
   top: 40px;
   left: 40px;
@@ -10,13 +10,13 @@
   padding: 20px;
 }
 
-.ExpensesModal__content {
+.BalanceItemModal__content {
   margin-left: 20px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 28px;
 }
 
-.ExpensesModal__closeButton {
+.BalanceItemModal__closeButton {
   position: absolute;
   bottom: 40px;
 }
