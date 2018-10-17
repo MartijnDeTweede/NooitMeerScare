@@ -28,24 +28,24 @@ class MonthlyBalanceTool extends Component {
     this.setState({ [modalname]: false });
   }
 
-  updateBalanceItemForSubCatagory = (subcatagory, value, set) => {
-    const inexOfElement = set.findIndex(object => object.subcatagory === subcatagory);
+  updateBalanceItemForSubcategory = (subcategory, value, set) => {
+    const inexOfElement = set.findIndex(object => object.subcategory === subcategory);
     set[inexOfElement].value = stringToFloat(value).toFixed(2);
     this.setState({...this.state, set});
   }
 
   renderTableRow = (balanceItem, balanceItems) => (
-    <tr key={balanceItem.subcatagory}>
-      <td>{balanceItem.catagory}</td>
-      <td>{balanceItem.subcatagory}</td>
+    <tr key={balanceItem.subcategory}>
+      <td>{balanceItem.category}</td>
+      <td>{balanceItem.subcategory}</td>
       <td>
-        <input type="number" name={balanceItem.subcatagory} defaultValue={balanceItem.value} onBlur={(e) => this.updateBalanceItemForSubCatagory(balanceItem.subcatagory, e.target.value, balanceItems)}/>
+        <input type="number" name={balanceItem.subcategory} defaultValue={balanceItem.value} onBlur={(e) => this.updateBalanceItemForSubcategory(balanceItem.subcategory, e.target.value, balanceItems)}/>
       </td>
     </tr>
   )
 
-  selectBalanceItem = (subcatagoryName, isChecked, set) => {
-    const inexOfElement = set.findIndex(object => object.subcatagory === subcatagoryName);
+  selectBalanceItem = (subcategoryName, isChecked, set) => {
+    const inexOfElement = set.findIndex(object => object.subcategory === subcategoryName);
     set[inexOfElement].selected = isChecked;
     this.setState( {...this.state, set});
   }

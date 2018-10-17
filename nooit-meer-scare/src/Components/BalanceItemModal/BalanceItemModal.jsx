@@ -10,11 +10,11 @@ import 'react-light-accordion/demo/css/index.css';
 class BalanceItemModal extends Component {
 
   renderCatagories = (catagories) => (
-      Object.keys(catagories).map(catagory => (
-      <AccordionItem title={catagory}>
-      {catagories[catagory].map(subcatagory => (
+      Object.keys(catagories).map(category => (
+      <AccordionItem title={category}>
+      {catagories[category].map(subcategory => (
         <div>
-          <input type="checkbox" checked={subcatagory.selected} onChange={(e) => this.props.selectBalanceItem(subcatagory.subcatagory, e.target.checked, this.props.balanceItems )} name={subcatagory.subcatagory} /> {subcatagory.subcatagory} 
+          <input type="checkbox" checked={subcategory.selected} onChange={(e) => this.props.selectBalanceItem(subcategory.subcategory, e.target.checked, this.props.balanceItems )} name={subcategory.subcategory} /> {subcategory.subcategory} 
         </div>
       ))}
     </AccordionItem>
@@ -55,8 +55,8 @@ BalanceItemModal.PropTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
   balanceItems: PropTypes.arrayOf(PropTypes.shape({
-    catagory: PropTypes.string.isRequired,
-    subcatagory: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
+    subcategory: PropTypes.number.isRequired,
     selected: PropTypes.bool.isRequired,
     value: PropTypes.string,
   })).isRequired,

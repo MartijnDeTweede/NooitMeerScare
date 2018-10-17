@@ -1,25 +1,187 @@
 [
   {
-    "catagory": "Wonen",
-    "subcatagory": "Huur",
+    "category": "Wonen",
+    "subcategory": "Huur",
     "selected": false,
     "value": "0.00"
   },
   {
-    "catagory": "Wonen",
-    "subcatagory": "Hypotheek",
+    "category": "Wonen",
+    "subcategory": "Hypotheek",
     "selected": false,
     "value": "0.00"
   },
   {
-    "catagory": "Levensonderhoud",
-    "subcatagory": "Boodschappen",
+    "category": "Wonen",
+    "subcategory": "Onderhoud woning",
     "selected": false,
     "value": "0.00"
   },
   {
-    "catagory": "Levensonderhoud",
-    "subcatagory": "Persoonlijke verzorging",
+    "category": "Levensonderhoud",
+    "subcategory": "Boodschappen",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Levensonderhoud",
+    "subcategory": "Persoonlijke verzorging",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Levensonderhoud",
+    "subcategory": "Schoonmaakmiddelen",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Huisdieren",
+    "subcategory": "Voedsel",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Huisdieren",
+    "subcategory": "Dierenarts",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Zorgkosten",
+    "subcategory": "Zorgverzekering",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Zorgkosten",
+    "subcategory": "Medicijnen",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Zorgkosten",
+    "subcategory": "Dokterskosten",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Zorgkosten",
+    "subcategory": "Fysiotherapeut",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Auto",
+    "subcategory": "Brandstof",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Auto",
+    "subcategory": "Onderhoud",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Auto",
+    "subcategory": "Verzekering",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Auto",
+    "subcategory": "Wegenbelasting",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Openbaar vervoer & taxi",
+    "subcategory": "Treinabonnement",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Openbaar vervoer & taxi",
+    "subcategory": "Busabonnement",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Openbaar vervoer & taxi",
+    "subcategory": "Losse tickets",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Belasting",
+    "subcategory": "Gemeentebelasting",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Belasting",
+    "subcategory": "Provinciale belasting",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Leningen",
+    "subcategory": "Terugbetalen lening",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Cadeaus en schenkingen",
+    "subcategory": "Cadeaus",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Cadeaus en schenkingen",
+    "subcategory": "Schenkingen",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Ontspanning & levensstijl",
+    "subcategory": "Drank",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Ontspanning & levensstijl",
+    "subcategory": "Drugs",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Ontspanning & levensstijl",
+    "subcategory": "Sigaretten",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Ontspanning & levensstijl",
+    "subcategory": "Uitgaan",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Ontspanning & levensstijl",
+    "subcategory": "Sportschool",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Ontspanning & levensstijl",
+    "subcategory": "Abbonementen",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "category": "Ontspanning & levensstijl",
+    "subcategory": "Cursussen",
     "selected": false,
     "value": "0.00"
   }
