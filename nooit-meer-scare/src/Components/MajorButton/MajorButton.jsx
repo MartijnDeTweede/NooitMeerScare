@@ -11,16 +11,20 @@ class MajorButton extends Component {
 
     return (
       <div>
-        <button className="majorButton" onClick={onClick}>{text}</button>
+        <button className={`majorButton majorButton--${this.props.colour}`} onClick={onClick}>{text}</button>
       </div>
     );
   }
 }
 
-export default MajorButton;
-
-MajorButton.PropTypes = {
-  text: PropTypes.string.isRequired,
-  onCLick: PropTypes.func.isRequired,
+MajorButton.DefaultProps = {
+  colour: 'Blue',
 }
 
+MajorButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  colour: PropTypes.string
+}
+
+export default MajorButton;

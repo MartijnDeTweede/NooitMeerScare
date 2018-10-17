@@ -69,8 +69,16 @@ class MonthlyBalanceTool extends Component {
         Dit is de monthlyBalancetool
         {this.renderTable(this.state.expenses)}
         {this.renderTable(this.state.incomes)}
-        <MajorButton text="Kies uitgaven" onClick={() => {this.openModal('ExpensesModalOpen')}} />
-        <MajorButton text="Kies inkomsten" onClick={() => {this.openModal('IncomesModalOpen')}} />
+        <MajorButton
+          text="Kies uitgaven"
+          onClick={() => {this.openModal('ExpensesModalOpen')}}
+          colour="Red"
+        />
+        <MajorButton
+          text="Kies inkomsten"
+          onClick={() => {this.openModal('IncomesModalOpen')}}
+          colour="Green"
+          />
         <BalanceItemModal 
           modalKey="IncomesModalOpen"
           text="Kies je inkomsten"
@@ -78,6 +86,7 @@ class MonthlyBalanceTool extends Component {
           balanceItems={this.state.incomes}
           isOpen={IncomesModalOpen}
           closeModal={() => {this.closeModal('IncomesModalOpen')}}
+          colour="Green"
         />
         <BalanceItemModal 
           modalKey="ExpensesModalOpen"
@@ -86,6 +95,7 @@ class MonthlyBalanceTool extends Component {
           balanceItems={this.state.expenses}
           isOpen={ExpensesModalOpen}
           closeModal={() => {this.closeModal('ExpensesModalOpen')}}
+          colour="Red"
         />
       </div>
     );
