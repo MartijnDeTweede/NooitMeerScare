@@ -4,7 +4,6 @@ import MajorButton from '../MajorButton/MajorButton';
 import Expenses from './expenses.json';
 import Incomes from './incomes.json';
 import './monthlyBalanceTool.css';
-import { renderTotalAmountRow } from '../Helpers/TableHelpers';
 import  { stringToFloat, getCatagoriesWithSubCatagories } from '../Helpers/DataTransformations';
 import { Accordion, AccordionItem } from 'react-light-accordion';
 
@@ -40,9 +39,7 @@ class MonthlyBalanceTool extends Component {
           {catagories[category].map(subcategory => (
             <div>
               <span className="Table__subCatagory">{subcategory.subcategory}</span>
-              <span className="Table__Ammount">
-                <input type="number" name={subcategory.subcategory} defaultValue={subcategory.value} onBlur={(e) => this.updateBalanceItemForSubcategory(subcategory.subcategory, e.target.value, balanceItems)}/>
-              </span>
+              <input className="Table__Ammount" type="number" name={subcategory.subcategory} defaultValue={subcategory.value} onBlur={(e) => this.updateBalanceItemForSubcategory(subcategory.subcategory, e.target.value, balanceItems)}/>
             </div>
           ))}
     </AccordionItem>
@@ -55,6 +52,17 @@ class MonthlyBalanceTool extends Component {
     this.setState( {...this.state, set});
   }
 
+  renderTotalAmountRow = (balanceMutations) => {
+    const values = balanceMutations.map(balanceMutation => stringToFloat(balanceMutation.value));
+    const total = values.reduce((a,b) => a+b,0).toFixed(2);
+    return (
+      <div>
+        <span className="Table__subCatagory">Totaal</span>
+        <span className="Table__Ammount" >{total}</span>
+      </div>
+    )
+  }
+
   renderTable = (balanceItems) => {
     const selectedItem = balanceItems.filter(item => item.selected);
     const catagory = getCatagoriesWithSubCatagories(selectedItem);
@@ -63,7 +71,7 @@ class MonthlyBalanceTool extends Component {
       <Accordion>
         {this.renderCatagory(catagory, balanceItems)}
       </Accordion>
-      {renderTotalAmountRow(selectedItem)}
+      {this.renderTotalAmountRow(selectedItem)}
     </div>
   )}
 
