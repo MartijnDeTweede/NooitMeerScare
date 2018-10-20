@@ -2,13 +2,13 @@
   {
     "category": "Arbeid",
     "subcategory": "Loon",
-    "selected": false,
+    "selected": true,
     "value": "0.00"
   },
   {
     "category": "Arbeid",
     "subcategory": "Bonus",
-    "selected": false,
+    "selected": true,
     "value": "0.00"
   },
   {

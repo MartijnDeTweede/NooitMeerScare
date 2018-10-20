@@ -11,7 +11,6 @@ class BalanceItemModal extends Component {
 
   renderCatagories = (catagories) => (
       Object.keys(catagories).map(category => (
-        <div key={category}>
             <AccordionItem title={category}>
             {catagories[category].map(subcategory => (
               <div key={subcategory.subcategory} className="BalanceItemModal__Subcategory">
@@ -19,7 +18,6 @@ class BalanceItemModal extends Component {
               </div>
             ))}
           </AccordionItem>
-        </div>
     ))
   )
 
@@ -33,7 +31,7 @@ class BalanceItemModal extends Component {
     } = this.props;
 
     const catagories = getCatagoriesWithSubCatagories(balanceItems)
-    
+
     return (
       <ReactModal className="BalanceItemModal" isOpen={isOpen}>
       <div>
@@ -41,7 +39,7 @@ class BalanceItemModal extends Component {
           <div className="BalanceItemModal__Categorybox">
             <Accordion>
               {this.renderCatagories(catagories)}
-            </Accordion>            
+            </Accordion>
           </div>
 
         <div className="BalanceItemModal__closeButton">

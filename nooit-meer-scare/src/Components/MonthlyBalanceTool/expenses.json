@@ -2,13 +2,13 @@
   {
     "category": "Wonen",
     "subcategory": "Huur",
-    "selected": false,
+    "selected": true,
     "value": "0.00"
   },
   {
     "category": "Wonen",
     "subcategory": "Hypotheek",
-    "selected": false,
+    "selected": true,
     "value": "0.00"
   },
   {

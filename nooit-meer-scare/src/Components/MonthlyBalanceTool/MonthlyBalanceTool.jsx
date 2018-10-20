@@ -4,9 +4,9 @@ import MajorButton from '../MajorButton/MajorButton';
 import Expenses from './expenses.json';
 import Incomes from './incomes.json';
 import './monthlyBalanceTool.css';
-import HeaderData from './headers.json';
-import { renderTotalAmountRow, renderHeaders } from '../Helpers/TableHelpers';
-import  { stringToFloat } from '../Helpers/DataTransformations';
+import { renderTotalAmountRow } from '../Helpers/TableHelpers';
+import  { stringToFloat, getCatagoriesWithSubCatagories } from '../Helpers/DataTransformations';
+import { Accordion, AccordionItem } from 'react-light-accordion';
 
 class MonthlyBalanceTool extends Component {
   constructor(props) {
@@ -34,14 +34,19 @@ class MonthlyBalanceTool extends Component {
     this.setState({...this.state, set});
   }
 
-  renderTableRow = (balanceItem, balanceItems) => (
-    <tr key={balanceItem.subcategory}>
-      <td>{balanceItem.category}</td>
-      <td>{balanceItem.subcategory}</td>
-      <td>
-        <input type="number" name={balanceItem.subcategory} defaultValue={balanceItem.value} onBlur={(e) => this.updateBalanceItemForSubcategory(balanceItem.subcategory, e.target.value, balanceItems)}/>
-      </td>
-    </tr>
+  renderCatagory = (catagories, balanceItems) => (
+    Object.keys(catagories).map(category => (
+      <AccordionItem title={category}>
+          {catagories[category].map(subcategory => (
+            <div>
+              <span className="Table__subCatagory">{subcategory.subcategory}</span>
+              <span className="Table__Ammount">
+                <input type="number" name={subcategory.subcategory} defaultValue={subcategory.value} onBlur={(e) => this.updateBalanceItemForSubcategory(subcategory.subcategory, e.target.value, balanceItems)}/>
+              </span>
+            </div>
+          ))}
+    </AccordionItem>
+    ))
   )
 
   selectBalanceItem = (subcategoryName, isChecked, set) => {
@@ -52,14 +57,14 @@ class MonthlyBalanceTool extends Component {
 
   renderTable = (balanceItems) => {
     const selectedItem = balanceItems.filter(item => item.selected);
+    const catagory = getCatagoriesWithSubCatagories(selectedItem);
     return (
-    <table>
-      <tbody>
-        {renderHeaders(HeaderData)}
-        {selectedItem.map(item => this.renderTableRow(item, balanceItems))}
-        {renderTotalAmountRow(selectedItem)}    
-      </tbody>
-    </table>
+    <div>
+      <Accordion>
+        {this.renderCatagory(catagory, balanceItems)}
+      </Accordion>
+      {renderTotalAmountRow(selectedItem)}
+    </div>
   )}
 
   render() {
@@ -67,8 +72,13 @@ class MonthlyBalanceTool extends Component {
     return (
       <div>
         Dit is de monthlyBalancetool
+        <div>
+        <div>Uitgaven</div>
         {this.renderTable(this.state.expenses)}
+        <div>Inkomsten</div>
         {this.renderTable(this.state.incomes)}
+        </div>
+
         <MajorButton
           text="Kies uitgaven"
           onClick={() => {this.openModal('ExpensesModalOpen')}}

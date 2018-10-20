@@ -12,7 +12,7 @@ export const getCatagoriesWithSubCatagories = (balanceMutation) => {
   let catagories = {};
 
   balanceMutation.forEach(mutation => {
-    if(catagories[mutation.category]) {      
+    if(catagories[mutation.category]) {
       catagories[mutation.category] = [...catagories[mutation.category], {subcategory: mutation.subcategory, selected: mutation.selected, value: mutation.value}];
     } else {
       catagories[mutation.category] = [{subcategory: mutation.subcategory, selected: mutation.selected, value: mutation.value}]
