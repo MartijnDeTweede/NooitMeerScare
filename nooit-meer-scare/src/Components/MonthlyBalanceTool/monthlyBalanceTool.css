@@ -1,21 +1,75 @@
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
+
+
+input {
+  border: 0px solid;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.Table__subCatagory {
-  min-width: 500px;
-  margin-right: 40px;
+input:disabled{
+  background-color: #f6f6f6;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    outline: none;
+}
+
+.Table {
+  max-width: 700px;
+  min-width: 400px;
+}
+
+.Table__subcategory {
+  float: left;
   text-align: left;
-  font-family: 'Courier New', Courier, monospace;
-  float:left;
+  width: 60%;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 
-.Table__Ammount {
-  min-width: 100px;
-  margin-right: 40px;
+.Table__amount {
   text-align: right;
-  font-family: 'Courier New', Courier, monospace;
-  border: 1px solid black;
+  width: 10%;
 }
+
+.Table__row {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+}
+/* Clear floats after the columns */
+.Table__row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.Table__row--Header {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #f6f6f6;
+  color: whitesmoke;
+}
+
+.Table__row--Header--Red{
+  background-color: rgba(216, 111, 111, 0.842);
+}
+
+.Table__row--Header--Green{
+  background-color: rgba(145, 189, 145, 0.76);
+}
+
+
+.Table__row--Total {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: 20px;
+  background-color: #f6f6f6;
+  font-weight: bold;
+}
+

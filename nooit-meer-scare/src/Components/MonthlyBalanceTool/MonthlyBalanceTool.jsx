@@ -37,9 +37,9 @@ class MonthlyBalanceTool extends Component {
     Object.keys(catagories).map(category => (
       <AccordionItem title={category}>
           {catagories[category].map(subcategory => (
-            <div>
-              <span className="Table__subCatagory">{subcategory.subcategory}</span>
-              <input className="Table__Ammount" type="number" name={subcategory.subcategory} defaultValue={subcategory.value} onBlur={(e) => this.updateBalanceItemForSubcategory(subcategory.subcategory, e.target.value, balanceItems)}/>
+            <div className="Table__row">
+              <span className="Table__subcategory">{subcategory.subcategory}</span>
+              <input className="Table__amount" type="number" name={subcategory.subcategory} defaultValue={subcategory.value} onBlur={(e) => this.updateBalanceItemForSubcategory(subcategory.subcategory, e.target.value, balanceItems)}/>
             </div>
           ))}
     </AccordionItem>
@@ -55,19 +55,21 @@ class MonthlyBalanceTool extends Component {
   renderTotalAmountRow = (balanceMutations) => {
     const values = balanceMutations.map(balanceMutation => stringToFloat(balanceMutation.value));
     const total = values.reduce((a,b) => a+b,0).toFixed(2);
+    const formatedTotal = total.replace(".", ",")
     return (
-      <div>
-        <span className="Table__subCatagory">Totaal</span>
-        <span className="Table__Ammount" >{total}</span>
+      <div className="Table__row Table__row--Total">
+        <span className="Table__subcategory">Totaal</span>
+        <input className="Table__amount" disabled value={formatedTotal} />
       </div>
     )
   }
 
-  renderTable = (balanceItems) => {
+  renderTable = (balanceItems, headertext, colour) => {
     const selectedItem = balanceItems.filter(item => item.selected);
     const catagory = getCatagoriesWithSubCatagories(selectedItem);
     return (
-    <div>
+    <div className="Table">
+      <div className={`Table__row Table__row--Header Table__row--Header--${colour}`}>{headertext}</div>
       <Accordion>
         {this.renderCatagory(catagory, balanceItems)}
       </Accordion>
@@ -81,10 +83,12 @@ class MonthlyBalanceTool extends Component {
       <div>
         Dit is de monthlyBalancetool
         <div>
-        <div>Uitgaven</div>
-        {this.renderTable(this.state.expenses)}
-        <div>Inkomsten</div>
-        {this.renderTable(this.state.incomes)}
+          <div>
+            {this.renderTable(this.state.expenses, "Uitgaven","Red")}
+          </div>
+          <div>
+            {this.renderTable(this.state.incomes, "Inkomsten", "Green")}
+          </div>
         </div>
 
         <MajorButton
