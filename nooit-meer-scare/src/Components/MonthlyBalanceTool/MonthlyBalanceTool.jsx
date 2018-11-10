@@ -125,12 +125,24 @@ class MonthlyBalanceTool extends Component {
     );
   }
 
+  renderHeader = () => (
+    <div className="Container__Header">
+    </div>
+  )
+
+  renderRightAd = () => (
+    <div className="Container__RightAd--DeskTop">
+    </div>
+  )
+
   render() {
     const { ExpensesModalOpen, IncomesModalOpen } = this.state;
     return (
       <div>
+        {this.renderHeader()}
         {this.renderSideMenu()}
         {this.renderBerekenTool()}
+        {this.renderRightAd()}
         <BalanceItemModal
           modalKey="IncomesModalOpen"
           text="Kies je inkomsten"

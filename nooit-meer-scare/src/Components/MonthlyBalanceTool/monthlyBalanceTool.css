@@ -1,15 +1,36 @@
-
+.Container__Header{
+  display: block;
+  margin-bottom: 1%;
+  background-color: rgba(69, 76, 175, 0.76);
+  min-height: 50px;
+}
 
 .Container__Table{
   display: inline-block;
-  width:  70%;
   margin-top: 1%;
+  margin-right: 2%;
+  vertical-align: top;
 }
 .Container__Menu {
   display: inline-block;
   margin-top: 1%;
-  margin-right: 1%;
+  margin-right: 2%;
   vertical-align: top;
+}
+
+.Container__RightAd--DeskTop {
+  display: inline-block;
+  margin-top: 1%;
+  margin-left: 2%;
+  background-color: rgba(145, 189, 145, 0.76);
+  min-width: 400px;
+  min-height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .Container__RightAd--DeskTop {
+    display: none;
+  }
 }
 
 input {
