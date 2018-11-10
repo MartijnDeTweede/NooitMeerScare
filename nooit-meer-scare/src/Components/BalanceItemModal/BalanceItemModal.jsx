@@ -11,7 +11,7 @@ class BalanceItemModal extends Component {
 
   renderCatagories = (catagories) => (
       Object.keys(catagories).map(category => (
-            <AccordionItem title={category}>
+            <AccordionItem title={category} key={category}>
             {catagories[category].map(subcategory => (
               <div key={subcategory.subcategory} className="BalanceItemModal__Subcategory">
                 <label><input type="checkbox" className="BalanceItem__CheckBox" checked={subcategory.selected} onChange={(e) => this.props.selectBalanceItem(subcategory.subcategory, e.target.checked, this.props.balanceItems )} name={subcategory.subcategory} /> {subcategory.subcategory}</label> 

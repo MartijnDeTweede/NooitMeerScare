@@ -35,9 +35,9 @@ class MonthlyBalanceTool extends Component {
 
   renderCatagory = (catagories, balanceItems) => (
     Object.keys(catagories).map(category => (
-      <AccordionItem title={category}>
+      <AccordionItem title={category} key={category}>
           {catagories[category].map(subcategory => (
-            <div className="Table__row">
+            <div className="Table__row" key={subcategory.subcategory}>
               <span className="Table__subcategory">{subcategory.subcategory}</span>
               <input className="Table__amount" type="number" name={subcategory.subcategory} defaultValue={subcategory.value} onBlur={(e) => this.updateBalanceItemForSubcategory(subcategory.subcategory, e.target.value, balanceItems)}/>
             </div>
@@ -92,34 +92,45 @@ class MonthlyBalanceTool extends Component {
     </div>
   )}
 
+  renderSideMenu = () => (
+    <div className="Container__Menu">
+    <MajorButton
+      text="Kies uitgaven"
+      onClick={() => {this.openModal('ExpensesModalOpen')}}
+      colour="Red"
+    />
+    <MajorButton
+      text="Kies inkomsten"
+      onClick={() => {this.openModal('IncomesModalOpen')}}
+      colour="Green"
+    />
+  </div>
+  )
+
+  renderBerekenTool = () => {
+    const { incomes, expenses } = this.state;
+    return (
+      <div className="Container__Table">
+      <div>
+        {this.renderTable(expenses, "Uitgaven","Red")}
+      </div>
+      <div>
+        {this.renderTable(incomes, "Inkomsten", "Green")}
+      </div>
+      <div className="Table">
+        <div className={`Table__row Table__row--Header Table__row--Header--Blue`}>Totaal</div>
+        {this.renderBalanceTotalAmountRow(expenses, incomes)}
+      </div>
+    </div>
+    );
+  }
+
   render() {
     const { ExpensesModalOpen, IncomesModalOpen } = this.state;
     return (
       <div>
-        <div className="Container__Menu">
-          <MajorButton
-            text="Kies uitgaven"
-            onClick={() => {this.openModal('ExpensesModalOpen')}}
-            colour="Red"
-          />
-          <MajorButton
-            text="Kies inkomsten"
-            onClick={() => {this.openModal('IncomesModalOpen')}}
-            colour="Green"
-            />
-        </div>
-        <div className="Container__Table">
-          <div>
-            {this.renderTable(this.state.expenses, "Uitgaven","Red")}
-          </div>
-          <div>
-            {this.renderTable(this.state.incomes, "Inkomsten", "Green")}
-          </div>
-          <div className="Table">
-            <div className={`Table__row Table__row--Header Table__row--Header--Blue`}>Totaal</div>
-            {this.renderBalanceTotalAmountRow(this.state.expenses, this.state.incomes)}
-          </div>
-        </div>
+        {this.renderSideMenu()}
+        {this.renderBerekenTool()}
         <BalanceItemModal
           modalKey="IncomesModalOpen"
           text="Kies je inkomsten"
