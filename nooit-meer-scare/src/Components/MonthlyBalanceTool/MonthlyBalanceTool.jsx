@@ -64,6 +64,21 @@ class MonthlyBalanceTool extends Component {
     )
   }
 
+  renderBalanceTotalAmountRow = (expenses, incomes) => {
+    const parsedExpenses = expenses.map(expense => stringToFloat(expense.value));
+    const parsedIncomes = incomes.map(income => stringToFloat(income.value));
+    const totalExpenses = parsedExpenses.reduce((a,b) => a+b,0).toFixed(2);
+    const totalIncomes = parsedIncomes.reduce((a,b) => a+b,0).toFixed(2);
+    const totalBalance = (totalIncomes - totalExpenses).toFixed(2);
+    const formatedTotal = totalBalance.replace(".", ",");
+    return (
+      <div className="Table__row Table__row--Total">
+        <span className="Table__subcategory">Totaal</span>
+        <input className="Table__amount" disabled value={formatedTotal} />
+      </div>
+    )
+  }
+
   renderTable = (balanceItems, headertext, colour) => {
     const selectedItem = balanceItems.filter(item => item.selected);
     const catagory = getCatagoriesWithSubCatagories(selectedItem);
@@ -100,8 +115,12 @@ class MonthlyBalanceTool extends Component {
           <div>
             {this.renderTable(this.state.incomes, "Inkomsten", "Green")}
           </div>
+          <div className="Table">
+            <div className={`Table__row Table__row--Header Table__row--Header--Blue`}>Totaal</div>
+            {this.renderBalanceTotalAmountRow(this.state.expenses, this.state.incomes)}
+          </div>
         </div>
-        <BalanceItemModal 
+        <BalanceItemModal
           modalKey="IncomesModalOpen"
           text="Kies je inkomsten"
           selectBalanceItem={this.selectBalanceItem}
@@ -110,7 +129,7 @@ class MonthlyBalanceTool extends Component {
           closeModal={() => {this.closeModal('IncomesModalOpen')}}
           colour="Green"
         />
-        <BalanceItemModal 
+        <BalanceItemModal
           modalKey="ExpensesModalOpen"
           text="Kies je uitgaven"
           selectBalanceItem={this.selectBalanceItem}
