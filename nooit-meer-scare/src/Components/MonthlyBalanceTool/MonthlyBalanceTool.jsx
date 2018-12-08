@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import BalanceItemModal from '../BalanceItemModal/BalanceItemModal';
+import ExportModal from '../ExportModal/ExportModal';
+import ImportModal from '../ImportModal/ImportModal';
 import MajorButton from '../MajorButton/MajorButton';
+
 import Expenses from './expenses.json';
 import Incomes from './incomes.json';
 import './monthlyBalanceTool.css';
@@ -14,6 +17,8 @@ class MonthlyBalanceTool extends Component {
     this.state = {
       ExpensesModalOpen: false,
       IncomesModalOpen: false,
+      ExportJSONModalOpen: false,
+      ImportJSONModalOpen: false,
       expenses: Expenses,
       incomes: Incomes,
     }
@@ -104,6 +109,16 @@ class MonthlyBalanceTool extends Component {
       onClick={() => {this.openModal('IncomesModalOpen')}}
       colour="Green"
     />
+    <MajorButton
+      text="Exporteer JSON"
+      onClick={() => {this.openModal('ExportJSONModalOpen')}}
+      colour="Grey"
+    />
+    <MajorButton
+      text="Importeer JSON"
+      onClick={() => {this.openModal('ImportJSONModalOpen')}}
+      colour="Purple"
+    />
   </div>
   )
 
@@ -136,7 +151,7 @@ class MonthlyBalanceTool extends Component {
   )
 
   render() {
-    const { ExpensesModalOpen, IncomesModalOpen } = this.state;
+    const { ExpensesModalOpen, IncomesModalOpen, ExportJSONModalOpen, ImportJSONModalOpen } = this.state;
     return (
       <div>
         {this.renderHeader()}
@@ -160,6 +175,20 @@ class MonthlyBalanceTool extends Component {
           isOpen={ExpensesModalOpen}
           closeModal={() => {this.closeModal('ExpensesModalOpen')}}
           colour="Red"
+        />
+        <ExportModal
+          modalKey="ExportJSONModalOpen"
+          text="Kies de plek waar naar je wilt exporteren"
+          isOpen={ExportJSONModalOpen}
+          closeModal={() => {this.closeModal('ExportJSONModalOpen')}}
+          colour="Blue"
+        />
+        <ImportModal
+          modalKey="ImportJSONModalOpen"
+          text="Kies de plek van waar je wilt importeren"
+          isOpen={ImportJSONModalOpen}
+          closeModal={() => {this.closeModal('ImportJSONModalOpen')}}
+          colour="Blue"
         />
       </div>
     );

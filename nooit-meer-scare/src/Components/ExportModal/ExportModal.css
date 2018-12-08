@@ -1,0 +1,20 @@
+.ExportModal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.ExportModal__content {
+  margin-left: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.ExportModal__closeButton {
+  align-content: center;
+}

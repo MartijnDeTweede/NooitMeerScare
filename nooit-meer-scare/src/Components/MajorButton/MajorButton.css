@@ -37,3 +37,21 @@
   background-color: rgb(223, 99, 99);
   font-size: 29px;
 }
+
+.majorButton--Grey {
+  background-color: rgb(126, 126, 126);
+}
+
+.majorButton--Grey:hover {
+  background-color: rgb(71, 71, 71);
+  font-size: 29px;
+}
+
+.majorButton--Purple {
+  background-color: rgb(131, 45, 131);
+}
+
+.majorButton--Purple:hover {
+  background-color: rgb(117, 40, 117);
+  font-size: 29px;
+}

@@ -43,7 +43,7 @@ class BalanceItemModal extends Component {
           </div>
 
         <div className="BalanceItemModal__closeButton">
-          < MajorButton colour="Blue" text="Modal sluiten" onClick={() => {closeModal(modalKey)}} />
+          < MajorButton colour={this.props.colour} text="Modal sluiten" onClick={() => {closeModal(modalKey)}} />
         </div>
       </div>
 
