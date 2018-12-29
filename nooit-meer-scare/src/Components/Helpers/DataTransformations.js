@@ -8,14 +8,14 @@ export const stringToFloat = (string) => {
 return 0.00;
 }
 
-export const getCatagoriesWithSubCatagories = (balanceMutation) => {
+export const getCatagoriesWithSubCatagories = (entries) => {
   let catagories = {};
-
-  balanceMutation.forEach(mutation => {
-    if(catagories[mutation.category]) {
-      catagories[mutation.category] = [...catagories[mutation.category], {subcategory: mutation.subcategory, selected: mutation.selected, value: mutation.value}];
+  console.log('entries in getCatagoriesWithSubCatagories: ', entries);
+  entries.forEach(entry => {
+    if(catagories[entry.category]) {
+      catagories[entry.category] = [...catagories[entry.category], { type: entry.type, subcategory: entry.subcategory, selected: entry.selected, value: entry.value}];
     } else {
-      catagories[mutation.category] = [{subcategory: mutation.subcategory, selected: mutation.selected, value: mutation.value}]
+      catagories[entry.category] = [{type: entry.type, subcategory: entry.subcategory, selected: entry.selected, value: entry.value}]
     }
   });
 return catagories;

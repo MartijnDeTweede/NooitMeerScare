@@ -1,187 +1,309 @@
 [
   {
+    "type": "expense",
     "category": "Wonen",
     "subcategory": "Huur",
     "selected": true,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Wonen",
     "subcategory": "Hypotheek",
     "selected": true,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Wonen",
     "subcategory": "Onderhoud woning",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Levensonderhoud",
     "subcategory": "Boodschappen",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Levensonderhoud",
     "subcategory": "Persoonlijke verzorging",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Levensonderhoud",
     "subcategory": "Schoonmaakmiddelen",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Huisdieren",
     "subcategory": "Voedsel",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Huisdieren",
     "subcategory": "Dierenarts",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Zorgkosten",
     "subcategory": "Zorgverzekering",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Zorgkosten",
     "subcategory": "Medicijnen",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Zorgkosten",
     "subcategory": "Dokterskosten",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Zorgkosten",
     "subcategory": "Fysiotherapeut",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Auto",
     "subcategory": "Brandstof",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Auto",
     "subcategory": "Onderhoud",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Auto",
     "subcategory": "Verzekering",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Auto",
     "subcategory": "Wegenbelasting",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Openbaar vervoer & taxi",
     "subcategory": "Treinabonnement",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Openbaar vervoer & taxi",
     "subcategory": "Busabonnement",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Openbaar vervoer & taxi",
     "subcategory": "Losse tickets",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Belasting",
     "subcategory": "Gemeentebelasting",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Belasting",
     "subcategory": "Provinciale belasting",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Leningen",
     "subcategory": "Terugbetalen lening",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Cadeaus en schenkingen",
     "subcategory": "Cadeaus",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Cadeaus en schenkingen",
     "subcategory": "Schenkingen",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Ontspanning & levensstijl",
     "subcategory": "Drank",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Ontspanning & levensstijl",
     "subcategory": "Drugs",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Ontspanning & levensstijl",
     "subcategory": "Sigaretten",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Ontspanning & levensstijl",
     "subcategory": "Uitgaan",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Ontspanning & levensstijl",
     "subcategory": "Sportschool",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Ontspanning & levensstijl",
     "subcategory": "Abbonementen",
     "selected": false,
     "value": "0.00"
   },
   {
+    "type": "expense",
     "category": "Ontspanning & levensstijl",
     "subcategory": "Cursussen",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Arbeid",
+    "subcategory": "Loon",
+    "selected": true,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Arbeid",
+    "subcategory": "Bonus",
+    "selected": true,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Arbeid",
+    "subcategory": "13e maand",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Arbeid",
+    "subcategory": "Onkostenvergoedingen",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Arbeid",
+    "subcategory": "Reiskostenvergoeding",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Overheidsbijdragen",
+    "subcategory": "Ziektekostenverzekering",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Overheidsbijdragen",
+    "subcategory": "Huursubsidie",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Overheidsbijdragen",
+    "subcategory": "Huursubsidie",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Belasting",
+    "subcategory": "Belastingteruggaven",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Cadeaus en schenkingen",
+    "subcategory": "Cadeaus",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Cadeaus en schenkingen",
+    "subcategory": "Schenkingen",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Investeringen en leningen",
+    "subcategory": "Divident",
+    "selected": false,
+    "value": "0.00"
+  },
+  {
+    "type": "income",
+    "category": "Investeringen en leningen",
+    "subcategory": "Terugbetalen lening",
     "selected": false,
     "value": "0.00"
   }

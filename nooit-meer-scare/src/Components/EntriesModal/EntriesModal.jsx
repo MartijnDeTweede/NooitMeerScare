@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 import MajorButton from '../MajorButton/MajorButton';
-import './BalanceItemModal.css';
+import './EntriesModal.css';
 import {getCatagoriesWithSubCatagories} from '../Helpers/DataTransformations';
 import { Accordion, AccordionItem } from 'react-light-accordion';
 import './accordion.css';
 
-class BalanceItemModal extends Component {
+class EntriesModal extends Component {
 
   renderCatagories = (catagories) => (
       Object.keys(catagories).map(category => (
             <AccordionItem title={category} key={category}>
             {catagories[category].map(subcategory => (
-              <div key={subcategory.subcategory} className="BalanceItemModal__Subcategory">
-                <label><input type="checkbox" className="BalanceItem__CheckBox" checked={subcategory.selected} onChange={(e) => this.props.selectBalanceItem(subcategory.subcategory, e.target.checked, this.props.balanceItems )} name={subcategory.subcategory} /> {subcategory.subcategory}</label> 
+              <div key={subcategory.subcategory} className="EntriesModal__Subcategory">
+                <label><input type="checkbox" className="Entries__CheckBox" checked={subcategory.selected} onChange={(e) => this.props.selectEntries(subcategory.subcategory, e.target.checked, this.props.entries )} name={subcategory.subcategory} /> {subcategory.subcategory}</label> 
               </div>
             ))}
           </AccordionItem>
@@ -25,24 +25,24 @@ class BalanceItemModal extends Component {
     const {
       isOpen,
       closeModal,
-      balanceItems,
+      entries,
       text,
       modalKey
     } = this.props;
 
-    const catagories = getCatagoriesWithSubCatagories(balanceItems)
+    const catagories = getCatagoriesWithSubCatagories(entries)
 
     return (
-      <ReactModal className="BalanceItemModal" isOpen={isOpen}>
+      <ReactModal className="EntriesModal" isOpen={isOpen}>
       <div>
-        <div className="BalanceItemModal__content">{text}</div>
-          <div className="BalanceItemModal__Categorybox">
+        <div className="EntriesModal__content">{text}</div>
+          <div className="EntriesModal__Categorybox">
             <Accordion>
               {this.renderCatagories(catagories)}
             </Accordion>
           </div>
 
-        <div className="BalanceItemModal__closeButton">
+        <div className="EntriesModal__closeButton">
           < MajorButton colour={this.props.colour} text="Modal sluiten" onClick={() => {closeModal(modalKey)}} />
         </div>
       </div>
@@ -52,22 +52,23 @@ class BalanceItemModal extends Component {
   }
 }
 
-export default BalanceItemModal;
+export default EntriesModal;
 
-BalanceItemModal.Defaultprops = {
+EntriesModal.Defaultprops = {
   colour: 'Blue'
 }
 
-BalanceItemModal.propTypes = {
+EntriesModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
-  balanceItems: PropTypes.arrayOf(PropTypes.shape({
+  entries: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     subcategory: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
     value: PropTypes.string,
   })).isRequired,
-  selectBalanceItem: PropTypes.func.isRequired,
+  selectEntries: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   modalKey: PropTypes.string,
   colour: PropTypes.string,

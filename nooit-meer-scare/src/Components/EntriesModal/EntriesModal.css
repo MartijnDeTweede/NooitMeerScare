@@ -1,5 +1,5 @@
 
-.BalanceItemModal {
+.EntriesModal {
   position: absolute;
   top: 40px;
   left: 40px;
@@ -10,7 +10,7 @@
   padding: 20px;
 }
 
-.BalanceItem__CheckBox {
+.Entries__CheckBox {
 	-webkit-appearance: none;
 	background-color: #fafafa;
 	border: 1px solid #cacece;
@@ -21,18 +21,18 @@
 	position: relative;
 }
 
-.BalanceItem__CheckBox:active, .BalanceItem__CheckBox:checked:active {
+.Entries__CheckBox:active, .Entries__CheckBox:checked:active {
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
 }
 
-.BalanceItem__CheckBox:checked {
+.Entries__CheckBox:checked {
 	background-color: #e9ecee;
 	border: 1px solid #adb8c0;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
 	color: #99a1a7;
 }
 
-.BalanceItem__CheckBox:checked:after {
+.Entries__CheckBox:checked:after {
 	content: '\2714';
 	font-size: 14px;
 	position: absolute;
@@ -57,29 +57,29 @@ input {
   *overflow: hidden;
 }
 
-.BalanceItemModal__content {
+.EntriesModal__content {
   margin-left: 18px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 28px;
   margin-bottom: 10px;
 }
 
-.BalanceItemModal__Categorybox {
+.EntriesModal__Categorybox {
   overflow-y: auto;
   height:500px;
   margin-bottom: 30px;
 }
-.BalanceItemModal__closeButton {
+.EntriesModal__closeButton {
   align-content: center;
 }
 
-.BalanceItemModal__Subcategory {
+.EntriesModal__Subcategory {
   margin-top: 30px;
   margin-left: 30px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 18px;
 }
 
-.BalanceItemModal__Subcategory:last-child {
+.EntriesModal__Subcategory:last-child {
   margin-bottom: 15px;
 }
