@@ -34,25 +34,20 @@ class MonthlyBalanceTool extends Component {
     this.setState({...this.state, set});
   }
 
-  renderCatagory = (catagories, entries) => {
-    return (
+  renderCatagory = (catagories, entries) => (
     Object.keys(catagories).map(category => (
       <AccordionItem title={category} key={category}>
-          {catagories[category].map(subcategory => {
-            console.log('subcategory: ', subcategory);
-            return (
+          {catagories[category].map(subcategory => (
             <SubcategoryLine
               key={subcategory.subcategory}
               name={subcategory.subcategory}
               value={subcategory.value}
               onBlur={(e) => this.updateEntryForSubcategory(subcategory.subcategory, e.target.value, entries)}
              />
-          )
-          } )}
+          ))}
     </AccordionItem>
     ))
   )
-  } 
 
   selectEntries = (subcategoryName, isChecked, set) => {
     const inexOfElement = set.findIndex(object => object.subcategory === subcategoryName);
