@@ -14,7 +14,7 @@ class EntriesModal extends Component {
             <AccordionItem title={category} key={category}>
             {catagories[category].map(subcategory => (
               <div key={subcategory.subcategory} className="EntriesModal__Subcategory">
-                <label><input type="checkbox" className="Entries__CheckBox" checked={subcategory.selected} onChange={(e) => this.props.selectEntries(subcategory.subcategory, e.target.checked, this.props.entries )} name={subcategory.subcategory} /> {subcategory.subcategory}</label> 
+                <label><input type="checkbox" className="Entries__CheckBox" checked={subcategory.selected} onChange={(e) => this.props.selectEntries(subcategory.subcategory, e.target.checked)} name={subcategory.subcategory} /> {subcategory.subcategory}</label> 
               </div>
             ))}
           </AccordionItem>

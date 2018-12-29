@@ -1,40 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import  { stringToFloat, getCatagoriesWithSubCatagories } from '../Helpers/DataTransformations';
+import { Accordion, AccordionItem } from 'react-light-accordion';
+
 import EntiesModal from '../EntriesModal/EntriesModal';
 import MajorButton from '../MajorButton/MajorButton';
 import SubcategoryLine from '../SubcategoryLine/SubcategoryLine';
 
-import Entries from './entries.json';
 import './monthlyBalanceTool.css';
 import './Table.css';
-import  { stringToFloat, getCatagoriesWithSubCatagories } from '../Helpers/DataTransformations';
-import { Accordion, AccordionItem } from 'react-light-accordion';
 
 class MonthlyBalanceTool extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      ExpensesModalOpen: false,
-      IncomesModalOpen: false,
-      entries: Entries,
-    }
-  }
-
-  openModal = (modalname) => {
-    this.setState({ [modalname]: true });
-  }
-
-  closeModal = (modalname) => {
-    this.setState({ [modalname]: false });
-  }
-
-  updateEntryForSubcategory = (subcategory, value, set) => {
-    const inexOfElement = set.findIndex(object => object.subcategory === subcategory);
-    set[inexOfElement].value = stringToFloat(value).toFixed(2);
-    this.setState({...this.state, set});
-  }
-
-  renderCatagory = (catagories, entries) => (
+  renderCatagory = (catagories) => (
     Object.keys(catagories).map(category => (
       <AccordionItem title={category} key={category}>
           {catagories[category].map(subcategory => (
@@ -42,37 +19,16 @@ class MonthlyBalanceTool extends Component {
               key={subcategory.subcategory}
               name={subcategory.subcategory}
               value={subcategory.value}
-              onBlur={(e) => this.updateEntryForSubcategory(subcategory.subcategory, e.target.value, entries)}
+              onBlur={(e) => this.props.updateEntryForSubcategory(subcategory.subcategory, e.target.value)}
              />
           ))}
     </AccordionItem>
     ))
   )
 
-  selectEntries = (subcategoryName, isChecked, set) => {
-    const inexOfElement = set.findIndex(object => object.subcategory === subcategoryName);
-    set[inexOfElement].selected = isChecked;
-    this.setState( {...this.state, set});
-  }
-
-  onFileLoaded = (loadedData) => {
-    // Shift to remove headers
-    loadedData.shift();
-    const entries = loadedData.map(array => ({
-      type: array[0],
-      category: array[1],
-      subcategory: array[2],
-      selected: array[3] === "true",
-      value: array[4]
-    }))
-
-    this.setState({entries});
-  }
-
-  renderTotalAmountRow = (balanceMutations) => {
-    const values = balanceMutations.map(balanceMutation => stringToFloat(balanceMutation.value));
-    const total = values.reduce((a,b) => a+b,0).toFixed(2);
-    const formatedTotal = total.replace(".", ",")
+  renderTotalAmountRow = (entries) => {
+    const values = entries.map(balanceMutation => stringToFloat(balanceMutation.value));
+    const formatedTotal = values.reduce((a,b) => a+b,0).toFixed(2).replace(".", ",")
     return (
       <div className="Table__row Table__row--Total">
         <span className="Table__subcategory">Totaal</span>
@@ -86,9 +42,8 @@ class MonthlyBalanceTool extends Component {
     const parsedExpenses = entries.filter(entry => entry.type === 'expense').map(expense => stringToFloat(expense.value));
     const parsedIncomes = entries.filter(entry => entry.type === 'income').map(income => stringToFloat(income.value));
     const totalExpenses = parsedExpenses.reduce((a,b) => a+b,0).toFixed(2);
-    const totalIncomes = parsedIncomes.reduce((a,b) => a+b,0).toFixed(2);
-    const totalBalance = (totalIncomes - totalExpenses).toFixed(2);
-    const formatedTotal = totalBalance.replace(".", ",");
+    const totalIncome = parsedIncomes.reduce((a,b) => a+b,0).toFixed(2);
+    const formatedTotal = (totalIncome - totalExpenses).toFixed(2).replace(".", ",");
     return (
       <div className="Table__row Table__row--Total">
         <span className="Table__subcategory">Totaal</span>
@@ -104,7 +59,7 @@ class MonthlyBalanceTool extends Component {
     <div className="Table">
       <div className={`Table__row Table__row--Header Table__row--Header--${colour}`}>{headertext}</div>
       <Accordion>
-        {this.renderCatagory(catagory, entries)}
+        {this.renderCatagory(catagory)}
       </Accordion>
       {this.renderTotalAmountRow(selectedItem)}
     </div>
@@ -114,31 +69,31 @@ class MonthlyBalanceTool extends Component {
     <div className="Container__Menu">
     <MajorButton
       text="Kies uitgaven"
-      onClick={() => {this.openModal('ExpensesModalOpen')}}
+      onClick={() => {this.props.openModal('ExpensesModalOpen')}}
       colour="Red"
     />
     <MajorButton
       text="Kies inkomsten"
-      onClick={() => {this.openModal('IncomesModalOpen')}}
+      onClick={() => {this.props.openModal('IncomesModalOpen')}}
       colour="Green"
     />
 
     <MajorButton
       text="Download als CSV"
-      dataToDownload={this.state.entries}
+      dataToDownload={this.props.entries}
       colour="Grey"
     />
 
     <MajorButton
       text="Importeer CSV"
-      onFileLoaded={this.onFileLoaded}
+      onFileLoaded={this.props.onFileLoaded}
       colour="Purple"
     />
   </div>
   )
 
   renderBerekenTool = () => {
-    const { entries } = this.state;
+    const { entries } = this.props;
 
     return (
       <div className="Container__Table">
@@ -167,7 +122,13 @@ class MonthlyBalanceTool extends Component {
   )
 
   render() {
-    const { ExpensesModalOpen, IncomesModalOpen, entries } = this.state;
+    const {
+      ExpensesModalOpen,
+      IncomesModalOpen,
+      closeModal,
+      entries,
+      selectEntries,
+    } = this.props;
     return (
       <div>
         {this.renderHeader()}
@@ -177,24 +138,35 @@ class MonthlyBalanceTool extends Component {
         <EntiesModal
           modalKey="IncomesModalOpen"
           text="Kies je inkomsten"
-          selectEntries={this.selectEntries}
+          selectEntries={selectEntries}
           entries={entries.filter(entry => entry.type === 'income')}
           isOpen={IncomesModalOpen}
-          closeModal={() => {this.closeModal('IncomesModalOpen')}}
+          closeModal={() => {closeModal('IncomesModalOpen')}}
           colour="Green"
         />
         <EntiesModal
           modalKey="ExpensesModalOpen"
           text="Kies je uitgaven"
-          selectEntries={this.selectEntries}
+          selectEntries={selectEntries}
           entries={entries.filter(entry => entry.type === 'expense')}
           isOpen={ExpensesModalOpen}
-          closeModal={() => {this.closeModal('ExpensesModalOpen')}}
+          closeModal={() => {closeModal('ExpensesModalOpen')}}
           colour="Red"
         />
       </div>
     );
   }
+}
+
+MonthlyBalanceTool.propTypes = {
+  ExpensesModalOpen: PropTypes.bool.isRequired,
+  IncomesModalOpen: PropTypes.bool.isRequired,
+  entries: PropTypes.shape(PropTypes.any),
+  openModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  updateEntryForSubcategory: PropTypes.func.isRequired,
+  selectEntries: PropTypes.func.isRequired,
+  onFileLoaded: PropTypes.func.isRequired,
 }
 
 export default MonthlyBalanceTool;
