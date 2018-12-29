@@ -28,14 +28,13 @@ class MonthlyBalanceTool extends Component {
     this.setState({ [modalname]: false });
   }
 
-  updateBalanceItemForSubcategory = (subcategory, value, set) => {
+  updateEntryForSubcategory = (subcategory, value, set) => {
     const inexOfElement = set.findIndex(object => object.subcategory === subcategory);
     set[inexOfElement].value = stringToFloat(value).toFixed(2);
     this.setState({...this.state, set});
   }
 
-  renderCatagory = (catagories, balanceItems) => {
-    console.log('balanceItems renderCatagory: ', balanceItems);
+  renderCatagory = (catagories, entries) => {
     return (
     Object.keys(catagories).map(category => (
       <AccordionItem title={category} key={category}>
@@ -46,7 +45,7 @@ class MonthlyBalanceTool extends Component {
               key={subcategory.subcategory}
               name={subcategory.subcategory}
               value={subcategory.value}
-              onBlur={(e) => this.updateBalanceItemForSubcategory(subcategory.subcategory, e.target.value, balanceItems)}
+              onBlur={(e) => this.updateEntryForSubcategory(subcategory.subcategory, e.target.value, entries)}
              />
           )
           } )}
@@ -103,14 +102,14 @@ class MonthlyBalanceTool extends Component {
     )
   }
 
-  renderTable = (balanceItems, headertext, colour) => {
-    const selectedItem = balanceItems.filter(item => item.selected);
+  renderTable = (entries, headertext, colour) => {
+    const selectedItem = entries.filter(item => item.selected);
     const catagory = getCatagoriesWithSubCatagories(selectedItem);
     return (
     <div className="Table">
       <div className={`Table__row Table__row--Header Table__row--Header--${colour}`}>{headertext}</div>
       <Accordion>
-        {this.renderCatagory(catagory, balanceItems)}
+        {this.renderCatagory(catagory, entries)}
       </Accordion>
       {this.renderTotalAmountRow(selectedItem)}
     </div>
