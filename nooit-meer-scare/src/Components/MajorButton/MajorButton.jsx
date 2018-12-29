@@ -14,22 +14,27 @@ class MajorButton extends Component {
 
     if(dataToDownload) {
       return (
-        <button className={`majorButton majorButton--${this.props.colour}`} onClick={onClick}>
-          <CSVLink
-            data={dataToDownload}
-            separator={";"}
-          >
-          {text}
-          </CSVLink>
-        </button>
+        <div>
+          <button className={`majorButton majorButton--${this.props.colour}`} onClick={onClick}>
+            <CSVLink
+              data={dataToDownload}
+              separator={";"}
+            >
+            {text}
+            </CSVLink>
+          </button>
+        </div>
       )
     }
 
     if(onFileLoaded) {
       return (
-        <CSVReader
-        onFileLoaded={onFileLoaded}
-      />
+        <label className={`majorButton__label majorButton--${this.props.colour}`}>
+          <CSVReader
+            onFileLoaded={onFileLoaded}
+            />
+            {text}
+        </label>
       )
     }
 

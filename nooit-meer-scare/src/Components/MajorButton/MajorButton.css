@@ -11,6 +11,22 @@
   width: 400px;
 }
 
+.majorButton__label {
+  border-radius:  10px;
+  padding: 14px;
+  border-width: 2px;
+  color: whitesmoke;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  max-width: 400px; 
+}
+
+
+
 .majorButton--Blue {
   background-color: rgba(102, 108, 182, 0.76);
 }
@@ -54,4 +70,15 @@
 .majorButton--Purple:hover {
   background-color: rgb(117, 40, 117);
   font-size: 29px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }
