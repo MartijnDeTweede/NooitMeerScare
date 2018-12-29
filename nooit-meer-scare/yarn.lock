@@ -4854,6 +4854,11 @@ pako@~1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
 
+papaparse@^4.3.6:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-4.6.2.tgz#5b2df0296f505f1c9d4c2261f903d3b44866a28d"
+  integrity sha512-P/4p6S6wZyXAjcFPnJAjFn7lxMIkd+23prFELhcbfWswQfg7dG1XJfV8/lKvk5lu5BGSSJZFHSDMejjFcB1feg==
+
 param-case@2.1.x:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/param-case/-/param-case-2.1.1.tgz#df94fd8cf6531ecf75e6bef9a0858fbc72be2247"
@@ -5485,6 +5490,13 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-csv-reader@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-csv-reader/-/react-csv-reader-1.2.0.tgz#37ae192d8196d968b9e14ae4d3294e6607815a59"
+  integrity sha512-AT2du6W8EwbvFyG2vrq2NZ3CvT2vj3B12FpdddSSiPXpVIghtZEftAK0/WLwwytXd4nbI1o7HgXB5Lrkg0m3yg==
+  dependencies:
+    papaparse "^4.3.6"
 
 react-csv@^1.0.19:
   version "1.0.19"
