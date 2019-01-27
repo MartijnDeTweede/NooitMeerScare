@@ -13,7 +13,7 @@
 
 .Table__amount {
   text-align: right;
-  width: 10%;
+  min-width: 100px
 }
 
 .Table__row {
