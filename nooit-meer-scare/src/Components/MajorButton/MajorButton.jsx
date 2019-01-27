@@ -30,13 +30,12 @@ class MajorButton extends Component {
 
     if(onFileLoaded) {
       return (
-        <label className={`majorButton__label majorButton--${this.props.colour} majorButton--CSVReader`}>
-          <CSVReader
-            onFileLoaded={onFileLoaded}
-            />
-            {text}
-        </label>
-      )
+      <CSVReader
+        cssClass= {`majorButton__label majorButton--${this.props.colour} majorButton--CSVReader`}
+        onFileLoaded={onFileLoaded}
+        label={text}
+        />
+  )
     }
 
     return (
