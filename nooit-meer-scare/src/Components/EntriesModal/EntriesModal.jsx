@@ -42,9 +42,7 @@ class EntriesModal extends Component {
             </Accordion>
           </div>
 
-        <div className="EntriesModal__closeButton">
-          < MajorButton colour={this.props.colour} text="Modal sluiten" onClick={() => {closeModal(modalKey)}} />
-        </div>
+        < MajorButton inModal colour={this.props.colour} text="Modal sluiten" onClick={() => {closeModal(modalKey)}} />
       </div>
 
       </ReactModal>

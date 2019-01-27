@@ -11,6 +11,14 @@
   width: 400px;
 }
 
+@media screen and (max-width: 700px) {
+  .majorButton__Modal--mobile {
+    font-size: 20px;
+    width: 250px; 
+  }
+}
+
+
 .majorButton__label {
   border-radius:  10px;
   border-style: solid;
@@ -25,7 +33,6 @@
   -moz-transition-duration: 0.5s;
   max-width: 400px; 
 }
-
 
 
 .majorButton--Blue {

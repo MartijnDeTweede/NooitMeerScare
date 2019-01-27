@@ -37,16 +37,18 @@ class MajorButton extends Component {
         />
   )
     }
+    const classNames = this.props.inModal ? `majorButton majorButton--${this.props.colour} majorButton__Modal--mobile` : `majorButton majorButton--${this.props.colour}`;
 
     return (
       <div>
-        <button className={`majorButton majorButton--${this.props.colour}`} onClick={onClick}>{text}</button>
+        <button className={classNames} onClick={onClick}>{text}</button>
       </div>
     );
   }
 }
 
 MajorButton.DefaultProps = {
+  inModal: false,
   colour: 'Blue',
   dataToDownload: null,
   onFileLoaded: null,
@@ -54,6 +56,7 @@ MajorButton.DefaultProps = {
 }
 
 MajorButton.propTypes = {
+  inModal: PropTypes.bool,
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   colour: PropTypes.string,
