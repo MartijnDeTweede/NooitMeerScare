@@ -19,6 +19,7 @@ class MajorButton extends Component {
             <CSVLink
               data={dataToDownload}
               separator={";"}
+              className="majorButton--CSVLink"
             >
             {text}
             </CSVLink>
@@ -29,7 +30,7 @@ class MajorButton extends Component {
 
     if(onFileLoaded) {
       return (
-        <label className={`majorButton__label majorButton--${this.props.colour}`}>
+        <label className={`majorButton__label majorButton--${this.props.colour} majorButton--CSVReader`}>
           <CSVReader
             onFileLoaded={onFileLoaded}
             />

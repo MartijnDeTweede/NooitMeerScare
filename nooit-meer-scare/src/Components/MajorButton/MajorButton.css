@@ -13,6 +13,7 @@
 
 .majorButton__label {
   border-radius:  10px;
+  border-style: solid;
   padding: 14px;
   border-width: 2px;
   color: whitesmoke;
@@ -76,9 +77,9 @@ input[type="file"] {
   display: none;
 }
 
-.custom-file-upload {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
+
+.majorButton--CSVLink {
+  text-decoration: none;
+  font-size: 29px;
+  color: whitesmoke;
 }

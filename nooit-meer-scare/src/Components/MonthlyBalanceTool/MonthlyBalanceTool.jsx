@@ -87,7 +87,7 @@ class MonthlyBalanceTool extends Component {
     <MajorButton
       text="Importeer CSV"
       onFileLoaded={this.props.onFileLoaded}
-      colour="Purple"
+      colour="Blue"
     />
   </div>
   )
