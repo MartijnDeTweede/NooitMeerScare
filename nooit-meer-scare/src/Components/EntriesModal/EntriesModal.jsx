@@ -35,14 +35,14 @@ class EntriesModal extends Component {
     return (
       <ReactModal className="EntriesModal" isOpen={isOpen}>
       <div>
-        <div className="EntriesModal__content">{text}</div>
+        <div className="EntriesModal__content">{text}
           <div className="EntriesModal__Categorybox">
             <Accordion>
               {this.renderCatagories(catagories)}
             </Accordion>
           </div>
-
         < MajorButton inModal colour={this.props.colour} text="Modal sluiten" onClick={() => {closeModal(modalKey)}} />
+        </div>
       </div>
 
       </ReactModal>

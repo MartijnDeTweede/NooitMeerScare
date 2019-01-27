@@ -69,8 +69,11 @@ input {
   height:500px;
   margin-bottom: 30px;
 }
-.EntriesModal__closeButton {
-  align-content: center;
+
+@media screen and (max-width: 700px) {
+  .EntriesModal__Categorybox {
+    height:400px;
+  }
 }
 
 .EntriesModal__Subcategory {
