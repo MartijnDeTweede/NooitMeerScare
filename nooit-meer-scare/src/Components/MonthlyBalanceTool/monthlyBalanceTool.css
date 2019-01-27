@@ -24,6 +24,10 @@
   .Container__RightAd--DeskTop {
     display: none;
   }
+
+  .Container__Menu {
+    margin-bottom: 10px;
+  }
 }
 
 input {

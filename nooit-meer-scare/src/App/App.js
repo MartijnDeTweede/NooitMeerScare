@@ -13,6 +13,8 @@ class App extends Component {
           <div className="App-header__logo"></div>
           <Link className=" App-header__link App-header__link--first" to="/huishoudboekje">Huishoudboekje</Link>
           <Link className="App-header__link" to="/jaarbalans">Jaarbalans</Link>
+
+          <div className="App-header__menu--mobile">Toon menu</div>
         </div>  
         <Switch>
           <Route path="/huishoudboekje" component={MonthlyBalanceToolContainer} /> 

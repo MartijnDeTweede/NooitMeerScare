@@ -26,10 +26,23 @@
   float:left;
 }
 
+.App-header__menu--mobile{
+  display: none;
+}
+
 @media screen and (max-width: 700px) {
   .App-header__link {
     display: none;
   }
+
+  .App-header__menu--mobile{
+    display: inline-block;
+    color: whitesmoke;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
 }
 
 .App-title {
