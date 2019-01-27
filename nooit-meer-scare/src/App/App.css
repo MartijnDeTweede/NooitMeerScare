@@ -2,16 +2,34 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  display: block;
+  margin-bottom: 1%;
+  background-color: rgba(69, 76, 175, 0.76);
+  height: 32px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.App-header__link--first {
+  margin-left: 150px;
+}
+
+.App-header__link {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  margin-right: 20px;
+  float:left;
+}
+
+@media screen and (max-width: 700px) {
+  .App-header__link {
+    display: none;
+  }
 }
 
 .App-title {

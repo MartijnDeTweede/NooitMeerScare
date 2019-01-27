@@ -111,11 +111,6 @@ class MonthlyBalanceTool extends Component {
     );
   }
 
-  renderHeader = () => (
-    <div className="Container__Header">
-    </div>
-  )
-
   renderRightAd = () => (
     <div className="Container__RightAd--DeskTop">
     </div>
@@ -131,7 +126,6 @@ class MonthlyBalanceTool extends Component {
     } = this.props;
     return (
       <div>
-        {this.renderHeader()}
         {this.renderSideMenu()}
         {this.renderBerekenTool()}
         {this.renderRightAd()}

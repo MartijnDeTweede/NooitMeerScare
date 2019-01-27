@@ -36,11 +36,11 @@
 
 
 .majorButton--Blue {
-  background-color: rgba(102, 108, 182, 0.76);
+  background-color: rgba(69, 76, 175, 0.76);
 }
 
 .majorButton--Blue:hover {
-  background-color: rgba(69, 76, 175, 0.76);
+  background-color: rgba(63, 71, 179, 0.76);
   font-size: 29px;
 }
 

@@ -9,14 +9,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <ul>
-          <li>
-            <Link to="/huishoudboekje">Huishoudboekje</Link>
-            <Link to="/jaarbalans">Jaarbalans</Link>
-          </li>
-
-        </ul>
+        <div className="App-header">
+          <div className="App-header__logo"></div>
+          <Link className=" App-header__link App-header__link--first" to="/huishoudboekje">Huishoudboekje</Link>
+          <Link className="App-header__link" to="/jaarbalans">Jaarbalans</Link>
+        </div>  
         <Switch>
           <Route path="/huishoudboekje" component={MonthlyBalanceToolContainer} /> 
           <Route path="/jaarbalans" component={AnualBalanceSheetContainer} />          
