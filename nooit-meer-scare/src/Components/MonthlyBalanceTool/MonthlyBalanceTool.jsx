@@ -32,7 +32,7 @@ class MonthlyBalanceTool extends Component {
             entries={entries}
             updateEntryForSubcategory= {updateEntryForSubcategory}
           />
-          <div className="Column Container__RightAd--DeskTop">
+          <div className="Container__RightAd--DeskTop">
           </div>
         </ThreeColumnSkeleton>
         <EntiesModal
