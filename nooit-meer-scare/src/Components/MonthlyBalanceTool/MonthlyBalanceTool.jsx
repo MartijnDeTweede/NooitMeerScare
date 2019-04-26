@@ -128,7 +128,7 @@ class MonthlyBalanceTool extends Component {
       <div>
         {this.renderSideMenu()}
         {this.renderBerekenTool()}
-        {this.renderRightAd()}
+        {/* {this.renderRightAd()} */}
         <EntiesModal
           modalKey="IncomesModalOpen"
           text="Kies je inkomsten"

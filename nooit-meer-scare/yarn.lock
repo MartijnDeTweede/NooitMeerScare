@@ -5507,6 +5507,11 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-adsense@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-adsense/-/react-adsense-0.0.6.tgz#0ceaaba47280e89c346ec68a38a2aa0b56d55208"
+  integrity sha512-B1NOJFkURbW+1Gi5J7IxXkIsZ9dAI8MFQpEYfrbfsh7ZdVgOeCcrxjV/3tWpjLiAXCDqVy7yJVn+WecSn7WMow==
+
 react-csv-reader@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-csv-reader/-/react-csv-reader-1.2.0.tgz#37ae192d8196d968b9e14ae4d3294e6607815a59"
