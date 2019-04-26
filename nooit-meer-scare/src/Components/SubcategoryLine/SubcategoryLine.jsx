@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../MonthlyBalanceTool/Table.css'
+import '../MonthlyBalanceToolForm/Table.css'
 
 class SubcategoryLine extends Component {
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MajorButton from '../MajorButton/MajorButton';
 import PropTypes from 'prop-types';
+import MajorButton from '../MajorButton/MajorButton';
 
 class SideMenu extends Component {
   render () {
@@ -45,7 +45,7 @@ SideMenu.propTypes = {
   onFileLoaded: PropTypes.func,
 }
 
-SideMenu.Defaultprops = {
+SideMenu.defaultProps = {
   entries: {},
   onFileLoaded: null,
 }
