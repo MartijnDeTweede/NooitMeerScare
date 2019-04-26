@@ -34,6 +34,7 @@ class MajorButton extends Component {
         cssClass= {`majorButton__label majorButton--${this.props.colour} majorButton--CSVReader`}
         onFileLoaded={onFileLoaded}
         label={text}
+        inputId="ObiWan"
         />
   )
     }

@@ -36,6 +36,7 @@ class MonthlyBalanceToolContainer extends Component {
   }
 
   onFileLoaded = (loadedData) => {
+    console.log('loadedData: ', loadedData);
     // Shift to remove headers
     loadedData.shift();
     const entries = loadedData.map(array => ({

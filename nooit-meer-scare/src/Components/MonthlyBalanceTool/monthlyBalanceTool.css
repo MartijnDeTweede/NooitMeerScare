@@ -1,20 +1,14 @@
-.Container__Table{
-  display: inline-block;
-  margin-top: 1%;
-  margin-right: 2%;
-  vertical-align: top;
+.Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-.Container__Menu {
-  display: inline-block;
+
+.Container .Column {
   margin-top: 1%;
-  margin-right: 2%;
-  vertical-align: top;
 }
 
 .Container__RightAd--DeskTop {
-  display: inline-block;
-  margin-top: 1%;
-  margin-left: 2%;
   background-color: rgba(145, 189, 145, 0.76);
   min-width: 400px;
   min-height: 1000px;
@@ -24,10 +18,9 @@
   .Container__RightAd--DeskTop {
     display: none;
   }
-
-  .Container__Menu {
-    margin-bottom: 10px;
-  }
+  .Container .Column {
+    margin-bottom: 20px;
+  } 
 }
 
 input {

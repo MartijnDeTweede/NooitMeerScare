@@ -4,7 +4,8 @@ import  { stringToFloat, getCatagoriesWithSubCatagories } from '../../Helpers/Da
 import { Accordion, AccordionItem } from 'react-light-accordion';
 
 import EntiesModal from '../EntriesModal/EntriesModal';
-import MajorButton from '../MajorButton/MajorButton';
+import SideMenu from '../SideMenu/SideMenu';
+
 import SubcategoryLine from '../SubcategoryLine/SubcategoryLine';
 
 import './monthlyBalanceTool.css';
@@ -65,38 +66,29 @@ class MonthlyBalanceTool extends Component {
     </div>
   )}
 
-  renderSideMenu = () => (
-    <div className="Container__Menu">
-    <MajorButton
-      text="Kies uitgaven"
-      onClick={() => {this.props.openModal('ExpensesModalOpen')}}
-      colour="Red"
-    />
-    <MajorButton
-      text="Kies inkomsten"
-      onClick={() => {this.props.openModal('IncomesModalOpen')}}
-      colour="Green"
-    />
+  renderSideMenu = () => {
+    const {
+      openModal,
+      entries,
+      onFileLoaded,
+    } = this.props;
 
-    <MajorButton
-      text="Download als CSV"
-      dataToDownload={this.props.entries}
-      colour="Grey"
-    />
+    return ( 
+      <div className="Column">
+        <SideMenu
+          openModal={openModal}
+          entries={entries}
+          onFileLoaded={onFileLoaded} />
+      </div>
+    )
+  }
 
-    <MajorButton
-      text="Importeer CSV"
-      onFileLoaded={this.props.onFileLoaded}
-      colour="Blue"
-    />
-  </div>
-  )
 
   renderBerekenTool = () => {
     const { entries } = this.props;
 
     return (
-      <div className="Container__Table">
+      <div className="Column">
       <div>
         {this.renderTable(entries.filter(entry => entry.type === 'expense'), "Uitgaven","Red")}
       </div>
@@ -112,7 +104,7 @@ class MonthlyBalanceTool extends Component {
   }
 
   renderRightAd = () => (
-    <div className="Container__RightAd--DeskTop">
+    <div className="Column Container__RightAd--DeskTop">
     </div>
   )
 
@@ -125,10 +117,10 @@ class MonthlyBalanceTool extends Component {
       selectEntries,
     } = this.props;
     return (
-      <div>
+      <div className='Container'>
         {this.renderSideMenu()}
         {this.renderBerekenTool()}
-        {/* {this.renderRightAd()} */}
+        {this.renderRightAd()}
         <EntiesModal
           modalKey="IncomesModalOpen"
           text="Kies je inkomsten"
@@ -155,7 +147,7 @@ class MonthlyBalanceTool extends Component {
 MonthlyBalanceTool.propTypes = {
   ExpensesModalOpen: PropTypes.bool.isRequired,
   IncomesModalOpen: PropTypes.bool.isRequired,
-  entries: PropTypes.shape(PropTypes.any),
+  entries: PropTypes.arrayOf(PropTypes.shape(PropTypes.any)).isRequired,
   openModal: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
   updateEntryForSubcategory: PropTypes.func.isRequired,
