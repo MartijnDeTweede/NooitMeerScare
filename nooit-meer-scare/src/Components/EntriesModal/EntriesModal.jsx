@@ -3,7 +3,8 @@ import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 import MajorButton from '../MajorButton/MajorButton';
 import './EntriesModal.css';
-import {getCatagoriesWithSubCatagories} from '../Helpers/DataTransformations';
+import {getCatagoriesWithSubCatagories} from '../../Helpers/DataTransformations';
+
 import { Accordion, AccordionItem } from 'react-light-accordion';
 import './accordion.css';
 

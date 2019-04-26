@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MonthlyBalanceTool from '../../Components/MonthlyBalanceTool/MonthlyBalanceTool';
 import Entries from './entries.json';
-import  { stringToFloat } from '../../Components/Helpers/DataTransformations';
+import { stringToFloat } from '../../Helpers/DataTransformations';
 class MonthlyBalanceToolContainer extends Component {
   constructor(props) {
     super(props);

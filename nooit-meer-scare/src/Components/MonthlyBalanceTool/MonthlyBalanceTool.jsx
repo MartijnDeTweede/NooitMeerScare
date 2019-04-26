@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import  { stringToFloat, getCatagoriesWithSubCatagories } from '../Helpers/DataTransformations';
+import  { stringToFloat, getCatagoriesWithSubCatagories } from '../../Helpers/DataTransformations';
 import { Accordion, AccordionItem } from 'react-light-accordion';
 
 import EntiesModal from '../EntriesModal/EntriesModal';
