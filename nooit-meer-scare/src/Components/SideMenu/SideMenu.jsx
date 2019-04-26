@@ -13,17 +13,6 @@ class SideMenu extends Component {
     return(
       <div>
       <MajorButton
-        text="Kies uitgaven"
-        onClick={() => {openModal('ExpensesModalOpen')}}
-        colour="Red"
-      />
-      <MajorButton
-        text="Kies inkomsten"
-        onClick={() => {openModal('IncomesModalOpen')}}
-        colour="Green"
-      />
-
-      <MajorButton
         text="Download als CSV"
         dataToDownload={entries}
         colour="Grey"

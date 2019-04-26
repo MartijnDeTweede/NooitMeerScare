@@ -48,12 +48,13 @@ class MonthlyBalanceToolForm extends Component {
     )
   }
 
-  renderTable = (entries, headertext, colour) => {
+  renderTable = (entries, headertext, colour, modalName) => {
+    const { openModal } = this.props;
     const selectedItem = entries.filter(item => item.selected);
     const catagory = getCatagoriesWithSubCatagories(selectedItem);
     return (
     <div className="Table">
-      <div className={`Table__row Table__row--Header Table__row--Header--${colour}`}>{headertext}</div>
+      <div className={`Table__row Table__row--Header Table__row--Header--${colour}`} onClick={() => openModal(modalName)}>{headertext}</div>
       <Accordion>
         {this.renderCatagory(catagory)}
       </Accordion>
@@ -66,10 +67,10 @@ class MonthlyBalanceToolForm extends Component {
     return (
       <div>
         <div>
-          {this.renderTable(entries.filter(entry => entry.type === 'expense'), "Uitgaven","Red")}
+          {this.renderTable(entries.filter(entry => entry.type === 'expense'), "Uitgaven","Red", "ExpensesModalOpen")}
         </div>
         <div>
-          {this.renderTable(entries.filter(entry => entry.type === 'income'), "Inkomsten", "Green")}
+          {this.renderTable(entries.filter(entry => entry.type === 'income'), "Inkomsten", "Green", "IncomesModalOpen")}
         </div>
         <div className="Table">
           <div className={`Table__row Table__row--Header Table__row--Header--Blue`}>Totaal</div>
@@ -80,12 +81,10 @@ class MonthlyBalanceToolForm extends Component {
   }
 }
 
-MonthlyBalanceToolForm.defaultProps = {
-
-};
 
 MonthlyBalanceToolForm.PropTypes = {
   entries: PropTypes.arrayOf(PropTypes.shape(PropTypes.any)).isRequired,
+  openModal: PropTypes.func.isRequired,
 };
 
 export default MonthlyBalanceToolForm;

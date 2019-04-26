@@ -31,6 +31,7 @@ class MonthlyBalanceTool extends Component {
           <MonthlyBalanceToolForm
             entries={entries}
             updateEntryForSubcategory= {updateEntryForSubcategory}
+            openModal={openModal}
           />
           <div className="Container__RightAd--DeskTop">
           </div>
