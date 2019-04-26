@@ -1,6 +1,12 @@
 .Table {
   max-width: 700px;
-  min-width: 400px;
+  min-width: 300px;
+}
+
+@media screen and (max-width: 700px) {
+  .Table {
+    min-width: 400px;
+  }
 }
 
 .Table__subcategory {

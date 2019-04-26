@@ -267,13 +267,6 @@
   },
   {
     "type": "income",
-    "category": "Overheidsbijdragen",
-    "subcategory": "Huursubsidie",
-    "selected": false,
-    "value": "0.00"
-  },
-  {
-    "type": "income",
     "category": "Belasting",
     "subcategory": "Belastingteruggaven",
     "selected": false,

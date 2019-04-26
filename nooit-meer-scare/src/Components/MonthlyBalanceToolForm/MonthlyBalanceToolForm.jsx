@@ -5,6 +5,7 @@ import { Accordion, AccordionItem } from 'react-light-accordion';
 import SubcategoryLine from '../SubcategoryLine/SubcategoryLine';
 
 import './Table.css';
+import './MonthlyBalanceToolForm.css';
 
 class MonthlyBalanceToolForm extends Component {
   renderCatagory = (catagories) => (
@@ -52,10 +53,8 @@ class MonthlyBalanceToolForm extends Component {
     const { entries } = this.props;
     return (
       <div>
-        <div>
+        <div className="MonthlyBalanceToolForm_TableContainer">
           {this.renderTable(entries.filter(entry => entry.type === 'expense'), "Uitgaven","Red", "ExpensesModalOpen")}
-        </div>
-        <div>
           {this.renderTable(entries.filter(entry => entry.type === 'income'), "Inkomsten", "Green", "IncomesModalOpen")}
         </div>
       </div>
