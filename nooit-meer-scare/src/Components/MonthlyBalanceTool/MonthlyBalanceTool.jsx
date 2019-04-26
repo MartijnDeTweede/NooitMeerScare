@@ -4,46 +4,11 @@ import PropTypes from 'prop-types';
 import EntiesModal from '../EntriesModal/EntriesModal';
 import SideMenu from '../SideMenu/SideMenu';
 import MonthlyBalanceToolForm from '../MonthlyBalanceToolForm/MonthlyBalanceToolForm';
+import ThreeColumnSkeleton from '../ThreeColumnSkeleton/ThreeColumnSkeleton';
 
 import './monthlyBalanceTool.css';
 
 class MonthlyBalanceTool extends Component {
-  renderSideMenu = () => {
-    const {
-      openModal,
-      entries,
-      onFileLoaded,
-    } = this.props;
-
-    return ( 
-      <div className="Column">
-        <SideMenu
-          openModal={openModal}
-          entries={entries}
-          onFileLoaded={onFileLoaded} />
-      </div>
-    )
-  }
-
-
-  renderBerekenTool = () => {
-    const {
-      entries,
-      updateEntryForSubcategory,
-    } = this.props;
-    return (
-      <MonthlyBalanceToolForm
-      entries={entries}
-      updateEntryForSubcategory= {updateEntryForSubcategory}
-      />
-    )
-  }
-
-  renderRightAd = () => (
-    <div className="Column Container__RightAd--DeskTop">
-    </div>
-  )
-
   render() {
     const {
       ExpensesModalOpen,
@@ -51,12 +16,25 @@ class MonthlyBalanceTool extends Component {
       closeModal,
       entries,
       selectEntries,
+      onFileLoaded,
+      updateEntryForSubcategory,
+      openModal,
     } = this.props;
     return (
-      <div className='Container'>
-        {this.renderSideMenu()}
-        {this.renderBerekenTool()}
-        {this.renderRightAd()}
+      <div>
+        <ThreeColumnSkeleton>
+          <SideMenu
+            openModal={openModal}
+            entries={entries}
+            onFileLoaded={onFileLoaded}
+          />
+          <MonthlyBalanceToolForm
+            entries={entries}
+            updateEntryForSubcategory= {updateEntryForSubcategory}
+          />
+          <div className="Column Container__RightAd--DeskTop">
+          </div>
+        </ThreeColumnSkeleton>
         <EntiesModal
           modalKey="IncomesModalOpen"
           text="Kies je inkomsten"
@@ -74,7 +52,7 @@ class MonthlyBalanceTool extends Component {
           isOpen={ExpensesModalOpen}
           closeModal={() => {closeModal('ExpensesModalOpen')}}
           colour="Red"
-        />
+        />        
       </div>
     );
   }
