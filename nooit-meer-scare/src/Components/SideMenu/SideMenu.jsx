@@ -5,7 +5,6 @@ import MajorButton from '../MajorButton/MajorButton';
 class SideMenu extends Component {
   render () {
     const {
-      openModal,
       entries,
       onFileLoaded,
     } = this.props;
@@ -29,7 +28,6 @@ class SideMenu extends Component {
 }
 
 SideMenu.propTypes = {
-  openModal: PropTypes.func.isRequired,
   entries: PropTypes.arrayOf(PropTypes.shape(PropTypes.any)),
   onFileLoaded: PropTypes.func,
 }

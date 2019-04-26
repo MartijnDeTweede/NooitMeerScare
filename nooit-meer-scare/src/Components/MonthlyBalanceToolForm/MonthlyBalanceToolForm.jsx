@@ -33,20 +33,6 @@ class MonthlyBalanceToolForm extends Component {
     )
   }
 
-  renderBalanceTotalAmountRow = (entries) => {
-    // To Do fix
-    const parsedExpenses = entries.filter(entry => entry.type === 'expense').map(expense => stringToFloat(expense.value));
-    const parsedIncomes = entries.filter(entry => entry.type === 'income').map(income => stringToFloat(income.value));
-    const totalExpenses = parsedExpenses.reduce((a,b) => a+b,0).toFixed(2);
-    const totalIncome = parsedIncomes.reduce((a,b) => a+b,0).toFixed(2);
-    const formatedTotal = (totalIncome - totalExpenses).toFixed(2).replace(".", ",");
-    return (
-      <div className="Table__row Table__row--Total">
-        <span className="Table__subcategory">Totaal</span>
-        <input className="Table__amount" disabled value={formatedTotal} />
-      </div>
-    )
-  }
 
   renderTable = (entries, headertext, colour, modalName) => {
     const { openModal } = this.props;
@@ -71,10 +57,6 @@ class MonthlyBalanceToolForm extends Component {
         </div>
         <div>
           {this.renderTable(entries.filter(entry => entry.type === 'income'), "Inkomsten", "Green", "IncomesModalOpen")}
-        </div>
-        <div className="Table">
-          <div className={`Table__row Table__row--Header Table__row--Header--Blue`}>Totaal</div>
-          {this.renderBalanceTotalAmountRow(entries)}
         </div>
       </div>
     );

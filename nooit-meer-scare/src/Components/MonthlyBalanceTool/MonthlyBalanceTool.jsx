@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import EntiesModal from '../EntriesModal/EntriesModal';
-import SideMenu from '../SideMenu/SideMenu';
+
 import MonthlyBalanceToolForm from '../MonthlyBalanceToolForm/MonthlyBalanceToolForm';
 import ThreeColumnSkeleton from '../ThreeColumnSkeleton/ThreeColumnSkeleton';
+import ControlPanel from '../ControlPanel/ControlPanel';
 
 import './monthlyBalanceTool.css';
 
@@ -23,8 +24,7 @@ class MonthlyBalanceTool extends Component {
     return (
       <div>
         <ThreeColumnSkeleton>
-          <SideMenu
-            openModal={openModal}
+          <ControlPanel
             entries={entries}
             onFileLoaded={onFileLoaded}
           />
