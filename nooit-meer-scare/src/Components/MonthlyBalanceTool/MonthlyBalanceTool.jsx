@@ -20,11 +20,16 @@ class MonthlyBalanceTool extends Component {
       onFileLoaded,
       updateEntryForSubcategory,
       openModal,
+      handleAnalysisClick,
     } = this.props;
     return (
       <div>
         <ThreeColumnSkeleton>
-          <ControlPanel entries={entries} onFileLoaded={onFileLoaded} />
+          <ControlPanel
+            entries={entries}
+            onFileLoaded={onFileLoaded}
+            handleAnalysisClick={handleAnalysisClick}
+          />
           <MonthlyBalanceToolForm
             entries={entries}
             updateEntryForSubcategory={updateEntryForSubcategory}
@@ -68,6 +73,7 @@ MonthlyBalanceTool.propTypes = {
   updateEntryForSubcategory: PropTypes.func.isRequired,
   selectEntries: PropTypes.func.isRequired,
   onFileLoaded: PropTypes.func.isRequired,
+  handleAnalysisClick: PropTypes.func.isRequired,
 };
 
 export default MonthlyBalanceTool;

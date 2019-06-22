@@ -53,6 +53,10 @@ class MonthlyBalanceToolContainer extends Component {
     this.setState({ entries });
   };
 
+  handleAnalysisClick = () => {
+    console.log('lalalalala');
+  };
+
   render() {
     const { ExpensesModalOpen, IncomesModalOpen, entries } = this.state;
     return (
@@ -65,6 +69,7 @@ class MonthlyBalanceToolContainer extends Component {
         updateEntryForSubcategory={this.updateEntryForSubcategory}
         selectEntries={this.selectEntries}
         onFileLoaded={this.onFileLoaded}
+        handleAnalysisClick={this.handleAnalysisClick}
       />
     );
   }

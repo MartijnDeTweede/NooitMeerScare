@@ -29,11 +29,15 @@ class ControlPanel extends Component {
   };
 
   render() {
-    const { entries, onFileLoaded } = this.props;
+    const { entries, onFileLoaded, handleAnalysisClick } = this.props;
     return (
       <div>
         <div className="ControlPanel__Sidemenu">
-          <SideMenu entries={entries} onFileLoaded={onFileLoaded} />
+          <SideMenu
+            entries={entries}
+            onFileLoaded={onFileLoaded}
+            handleAnalysisClick={handleAnalysisClick}
+          />
         </div>
         <div className="Table">
           <div
@@ -51,11 +55,13 @@ class ControlPanel extends Component {
 ControlPanel.defaultProps = {
   entries: {},
   onFileLoaded: null,
+  handleAnalysisClick: null,
 };
 
 ControlPanel.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.shape(PropTypes.any)),
   onFileLoaded: PropTypes.func,
+  handleAnalysisClick: PropTypes.func,
 };
 
 export default ControlPanel;
