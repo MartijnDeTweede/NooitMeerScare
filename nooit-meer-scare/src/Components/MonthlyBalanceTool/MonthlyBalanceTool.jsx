@@ -5,7 +5,7 @@ import EntiesModal from '../EntriesModal/EntriesModal';
 
 import MonthlyBalanceToolForm from '../MonthlyBalanceToolForm/MonthlyBalanceToolForm';
 import ThreeColumnSkeleton from '../ThreeColumnSkeleton/ThreeColumnSkeleton';
-import ControlPanel from '../ControlPanel/ControlPanel';
+import ControlPanel from '../ControlPanelWithTotal/ControlPanelWithTotal';
 
 import './monthlyBalanceTool.css';
 
@@ -24,17 +24,13 @@ class MonthlyBalanceTool extends Component {
     return (
       <div>
         <ThreeColumnSkeleton>
-          <ControlPanel
-            entries={entries}
-            onFileLoaded={onFileLoaded}
-          />
+          <ControlPanel entries={entries} onFileLoaded={onFileLoaded} />
           <MonthlyBalanceToolForm
             entries={entries}
-            updateEntryForSubcategory= {updateEntryForSubcategory}
+            updateEntryForSubcategory={updateEntryForSubcategory}
             openModal={openModal}
           />
-          <div className="Container__RightAd--DeskTop">
-          </div>
+          <div className="Container__RightAd--DeskTop" />
         </ThreeColumnSkeleton>
         <EntiesModal
           modalKey="IncomesModalOpen"
@@ -42,7 +38,9 @@ class MonthlyBalanceTool extends Component {
           selectEntries={selectEntries}
           entries={entries.filter(entry => entry.type === 'income')}
           isOpen={IncomesModalOpen}
-          closeModal={() => {closeModal('IncomesModalOpen')}}
+          closeModal={() => {
+            closeModal('IncomesModalOpen');
+          }}
           colour="Green"
         />
         <EntiesModal
@@ -51,9 +49,11 @@ class MonthlyBalanceTool extends Component {
           selectEntries={selectEntries}
           entries={entries.filter(entry => entry.type === 'expense')}
           isOpen={ExpensesModalOpen}
-          closeModal={() => {closeModal('ExpensesModalOpen')}}
+          closeModal={() => {
+            closeModal('ExpensesModalOpen');
+          }}
           colour="Red"
-        />        
+        />
       </div>
     );
   }
@@ -68,6 +68,6 @@ MonthlyBalanceTool.propTypes = {
   updateEntryForSubcategory: PropTypes.func.isRequired,
   selectEntries: PropTypes.func.isRequired,
   onFileLoaded: PropTypes.func.isRequired,
-}
+};
 
 export default MonthlyBalanceTool;

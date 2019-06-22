@@ -10,48 +10,51 @@ class MonthlyBalanceToolContainer extends Component {
       ExpensesModalOpen: false,
       IncomesModalOpen: false,
       entries: Entries,
-    }
+    };
   }
 
-  openModal = (modalname) => {
+  openModal = modalname => {
     this.setState({ [modalname]: true });
-  }
+  };
 
-  closeModal = (modalname) => {
+  closeModal = modalname => {
     this.setState({ [modalname]: false });
-  }
+  };
 
   updateEntryForSubcategory = (subcategory, value) => {
-    const {entries} = this.state;
-    const inexOfElement = entries.findIndex(object => object.subcategory === subcategory);
+    const { entries } = this.state;
+    const inexOfElement = entries.findIndex(
+      object => object.subcategory === subcategory
+    );
     entries[inexOfElement].value = stringToFloat(value).toFixed(2);
-    this.setState({...this.state, entries});
-  }
+    this.setState({ ...this.state, entries });
+  };
 
   selectEntries = (subcategoryName, isChecked) => {
-    const {entries} = this.state;
-    const inexOfElement = entries.findIndex(object => object.subcategory === subcategoryName);
+    const { entries } = this.state;
+    const inexOfElement = entries.findIndex(
+      object => object.subcategory === subcategoryName
+    );
     entries[inexOfElement].selected = isChecked;
-    this.setState( {...this.state, entries});
-  }
+    this.setState({ ...this.state, entries });
+  };
 
-  onFileLoaded = (loadedData) => {
-    console.log('loadedData: ', loadedData);
+  onFileLoaded = loadedData => {
     // Shift to remove headers
     loadedData.shift();
     const entries = loadedData.map(array => ({
       type: array[0],
       category: array[1],
       subcategory: array[2],
-      selected: array[3] === "true",
-      value: array[4]
-    }))
+      selected: array[3] === 'true',
+      value: array[4],
+    }));
 
-    this.setState({entries});
-  }
+    this.setState({ entries });
+  };
 
   render() {
-    const { ExpensesModalOpen, IncomesModalOpen, entries} = this.state;
+    const { ExpensesModalOpen, IncomesModalOpen, entries } = this.state;
     return (
       <MonthlyBalanceTool
         ExpensesModalOpen={ExpensesModalOpen}
