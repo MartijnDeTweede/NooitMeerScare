@@ -4,7 +4,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 
 import MonthlyBalanceToolContainer from '../Containers/MonthlyBalanceToolContainer/MonthlyBalanceToolContainer';
 import AnualBalanceSheetContainer from '../Containers/AnualBalanceSheetContainer/AnualBalanceSheetContainer';
-import BuyCarContainer from '../Containers/BuyCarContainer/BuyCarContainer';
+import AnalysisContainer from '../Containers/AnalysisContainer/AnalysisContainer';
 
 class App extends Component {
   render() {
@@ -18,8 +18,8 @@ class App extends Component {
           >
             Huishoudboekje
           </Link>
-          <Link className="App-header__link" to="/auto-kopen-anayse">
-            Nieuwe auto
+          <Link className="App-header__link" to="/analyse">
+            Analyse
           </Link>
           <Link className="App-header__link" to="/jaarbalans">
             Jaarbalans
@@ -32,7 +32,7 @@ class App extends Component {
             path="/huishoudboekje"
             component={MonthlyBalanceToolContainer}
           />
-          <Route path="/auto-kopen-anayse" component={BuyCarContainer} />
+          <Route path="/analyse" component={AnalysisContainer} />
           <Route path="/jaarbalans" component={AnualBalanceSheetContainer} />
         </Switch>
       </div>
