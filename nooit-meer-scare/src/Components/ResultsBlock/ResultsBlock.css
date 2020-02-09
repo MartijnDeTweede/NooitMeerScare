@@ -1,0 +1,20 @@
+.resultBlock{
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.resultBlock__title {
+  width: 200px;
+ margin-left:20px;
+}
+
+.resultBlock__value {
+  width: 200px;
+  margin-left:20px;
+ }
+
+ .resultBlock__percentage {
+  width: 200px;
+  margin-left:20px;
+ }
+ 

@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 
 import ThreeColumnSkeleton from '../ThreeColumnSkeleton/ThreeColumnSkeleton';
 import MajorButton from '../../Components/MajorButton/MajorButton';
+import ResultsBlock from '../ResultsBlock/ResultsBlock';
+
+
 
 class Analysistool extends Component {
   render() {
-    const { onFileLoaded } = this.props;
+    const { onFileLoaded, wants, needs, savings, totalIncome, needsPercentage, wantsPercentage, savingsPercentage } = this.props;
     return (
       <div>
         <ThreeColumnSkeleton>
@@ -15,8 +18,20 @@ class Analysistool extends Component {
             onFileLoaded={onFileLoaded}
             colour="Blue"
           />
-          <div>Hier komt de form</div>
-          <div>50-30-20</div>
+          <div>
+          {
+            needs && <ResultsBlock title="Needs" value={needs} percentage={needsPercentage} />
+          }
+          {
+            wants && <ResultsBlock title="Wants" value={wants} percentage={wantsPercentage} />
+          }
+          {
+            savings && <ResultsBlock title="Savings" value={savings} percentage={savingsPercentage} />
+          }
+          {
+            totalIncome && <div> Totaal inkomen: {totalIncome} </div>
+          }
+          </div>
           <div className="Container__RightAd--DeskTop" />
         </ThreeColumnSkeleton>
       </div>
