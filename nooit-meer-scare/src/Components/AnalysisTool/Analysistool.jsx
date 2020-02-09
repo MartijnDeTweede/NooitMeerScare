@@ -15,7 +15,8 @@ class Analysistool extends Component {
             onFileLoaded={onFileLoaded}
             colour="Blue"
           />
-          <dif>Hier komt de form</dif>
+          <div>Hier komt de form</div>
+          <div>50-30-20</div>
           <div className="Container__RightAd--DeskTop" />
         </ThreeColumnSkeleton>
       </div>

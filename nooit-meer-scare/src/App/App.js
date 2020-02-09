@@ -18,12 +18,12 @@ class App extends Component {
           >
             Huishoudboekje
           </Link>
-          <Link className="App-header__link" to="/analyse">
+          {/* <Link className="App-header__link" to="/analyse">
             Analyse
           </Link>
           <Link className="App-header__link" to="/jaarbalans">
             Jaarbalans
-          </Link>
+          </Link> */}
 
           <div className="App-header__menu--mobile">Toon menu</div>
         </div>
