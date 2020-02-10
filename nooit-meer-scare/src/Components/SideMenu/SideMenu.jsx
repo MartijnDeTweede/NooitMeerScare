@@ -7,6 +7,7 @@ class SideMenu extends Component {
     const {
       entries,
       onFileLoaded,
+      analyze,
     } = this.props;
 
     return(
@@ -20,6 +21,11 @@ class SideMenu extends Component {
       <MajorButton
         text="Importeer CSV"
         onFileLoaded={onFileLoaded}
+        colour="Grey"
+      />
+      <MajorButton
+        text="Analyseer"
+        onClick={analyze}
         colour="Blue"
       />
       </div>
@@ -30,11 +36,13 @@ class SideMenu extends Component {
 SideMenu.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.shape(PropTypes.any)),
   onFileLoaded: PropTypes.func,
+  analyze: PropTypes.func,
 }
 
 SideMenu.defaultProps = {
   entries: {},
   onFileLoaded: null,
+  analyze: null,
 }
 
 export default SideMenu;

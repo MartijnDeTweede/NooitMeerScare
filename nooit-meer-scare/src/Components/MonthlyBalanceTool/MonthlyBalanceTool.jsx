@@ -6,6 +6,7 @@ import EntiesModal from '../EntriesModal/EntriesModal';
 import MonthlyBalanceToolForm from '../MonthlyBalanceToolForm/MonthlyBalanceToolForm';
 import ThreeColumnSkeleton from '../ThreeColumnSkeleton/ThreeColumnSkeleton';
 import ControlPanel from '../ControlPanelWithTotal/ControlPanelWithTotal';
+import Analysistool from '../../Components/AnalysisTool/Analysistool';
 
 import './monthlyBalanceTool.css';
 
@@ -20,16 +21,38 @@ class MonthlyBalanceTool extends Component {
       onFileLoaded,
       updateEntryForSubcategory,
       openModal,
+      stage,
+      wants,
+      needs,
+      savings,
+      needsPercentage,
+      wantsPercentage,
+      savingsPercentage,
+      analyze,
     } = this.props;
+
     return (
       <div>
         <ThreeColumnSkeleton>
-          <ControlPanel entries={entries} onFileLoaded={onFileLoaded} />
-          <MonthlyBalanceToolForm
-            entries={entries}
-            updateEntryForSubcategory={updateEntryForSubcategory}
-            openModal={openModal}
+          <ControlPanel entries={entries} onFileLoaded={onFileLoaded} analyze={
+            analyze} />
+          {
+            stage === 'form' && <MonthlyBalanceToolForm
+              entries={entries}
+              updateEntryForSubcategory={updateEntryForSubcategory}
+              openModal={openModal}
           />
+          }
+          {
+            stage === 'analysis' && <Analysistool
+              wants={wants}
+              needs={needs}
+              savings={savings}
+              needsPercentage={needsPercentage}
+              wantsPercentage={wantsPercentage}
+              savingsPercentage={savingsPercentage}
+            />
+          }
           <div className="Container__RightAd--DeskTop" />
         </ThreeColumnSkeleton>
         <EntiesModal

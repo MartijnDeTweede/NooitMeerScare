@@ -10,6 +10,14 @@ class MonthlyBalanceToolContainer extends Component {
       ExpensesModalOpen: false,
       IncomesModalOpen: false,
       entries: Entries,
+      stage: 'form',
+      needs: null,
+      wants: null,
+      savings: null,
+      totalIncome: null,
+      needsPercentage: null,
+      wantsPercentage: null,
+      savingsPercentage: null,
     };
   }
 
@@ -39,22 +47,68 @@ class MonthlyBalanceToolContainer extends Component {
     this.setState({ ...this.state, entries });
   };
 
+
+  analysis = entries => {
+    const totalIncome = entries.reduce((accumulator, currentValue) => {
+      if(currentValue.type === 'income') {
+        return accumulator + parseInt(currentValue.value,10);
+      }
+      return accumulator;
+    }, 0);
+
+    const needs = entries.reduce((accumulator, currentValue) => {
+      if(currentValue.subtype === 'need') {
+        return accumulator + parseInt(currentValue.value,10);
+      }
+      return accumulator;
+    }, 0);
+
+    const wants = entries.reduce((accumulator, currentValue) => {
+      if(currentValue.subtype === 'want') {
+        return accumulator + parseInt(currentValue.value,10);
+      }
+      return accumulator;
+    }, 0);
+
+    const savingsFromFile = entries.reduce((accumulator, currentValue) => {
+      if(currentValue.subtype === 'saving') {
+        return accumulator + parseInt(currentValue.value,10);
+      }
+      return accumulator;
+    }, 0);
+
+    const remainingbalance = totalIncome - wants - needs - savingsFromFile;
+    const savings = savingsFromFile + remainingbalance;
+
+    const needsPercentage = needs / totalIncome;
+    const wantsPercentage = wants / totalIncome;
+    const savingsPercentage = savings / totalIncome;
+
+    this.setState({ totalIncome, wants, needs, savings, needsPercentage, wantsPercentage, savingsPercentage });
+  }
+
   onFileLoaded = loadedData => {
     // Shift to remove headers
     loadedData.shift();
     const entries = loadedData.map(array => ({
       type: array[0],
-      category: array[1],
-      subcategory: array[2],
-      selected: array[3] === 'true',
-      value: array[4],
+      subtype:array[1],
+      category: array[2],
+      subcategory: array[3],
+      value: array[5],
     }));
-
-    this.setState({ entries });
+    
+    this.analysis(entries);
   };
 
+  analyzeClicked = (entries) => {
+    console.log('boo');
+    this.analysis(entries);
+    this.setState({stage: 'analysis'})
+  }
+
   render() {
-    const { ExpensesModalOpen, IncomesModalOpen, entries } = this.state;
+    const { ExpensesModalOpen, IncomesModalOpen, entries, stage, wants, needs, savings, needsPercentage, wantsPercentage, savingsPercentage } = this.state;
     return (
       <MonthlyBalanceTool
         ExpensesModalOpen={ExpensesModalOpen}
@@ -65,6 +119,14 @@ class MonthlyBalanceToolContainer extends Component {
         updateEntryForSubcategory={this.updateEntryForSubcategory}
         selectEntries={this.selectEntries}
         onFileLoaded={this.onFileLoaded}
+        stage={stage}
+        wants={wants}
+        needs={needs}
+        savings={savings}
+        needsPercentage={needsPercentage}
+        wantsPercentage={wantsPercentage}
+        savingsPercentage={savingsPercentage}
+        analyze={() => this.analyzeClicked(entries)}
       />
     );
   }
